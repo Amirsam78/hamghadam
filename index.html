@@ -1,0 +1,2752 @@
+<!doctype html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#EDF1F0" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0B1312" media="(prefers-color-scheme: dark)">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="هم‌قدم">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="format-detection" content="telephone=no">
+<meta name="referrer" content="no-referrer">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="apple-touch-icon" href="icon-180.png">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+<link rel="preload" href="vazir-arabic.woff2" as="font" type="font/woff2" crossorigin>
+<title>هم‌قدم</title>
+<style>
+@font-face{font-family:"HQ Vazir";font-style:normal;font-display:swap;font-weight:100 900;src:url(vazir-arabic.woff2) format("woff2");unicode-range:U+0600-06FF,U+0750-077F,U+0870-088E,U+0890-0891,U+0897-08E1,U+08E3-08FF,U+200C-200E,U+2010-2011,U+204F,U+2E41,U+FB50-FDFF,U+FE70-FE74,U+FE76-FEFC}
+@font-face{font-family:"HQ Vazir";font-style:normal;font-display:swap;font-weight:100 900;src:url(vazir-latin.woff2) format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:"HQ Markazi";font-style:normal;font-display:swap;font-weight:400 700;src:url(markazi-arabic.woff2) format("woff2");unicode-range:U+0600-06FF,U+0750-077F,U+0870-088E,U+0890-0891,U+0897-08E1,U+08E3-08FF,U+200C-200E,U+2010-2011,U+204F,U+2E41,U+FB50-FDFF,U+FE70-FE74,U+FE76-FEFC}
+:root{color-scheme:light;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}body{margin:0}img{max-width:100%}
+/* Layout: a one-column training log. The seven-day strip (Saturday on the right, Friday on the left) is the spine of every view; each friend's own color is the only loud element. */
+:root{
+  --bg:#EDF1F0;--surface:#FFFFFF;--surface-2:#F3F6F5;--ink:#132220;--ink-2:#4A5B58;--ink-3:#7A8986;
+  --line:#DAE3E1;--track:#E1E8E6;
+  --accent:#0A7A75;--accent-ink:#FFFFFF;--accent-soft:#D4EDEA;
+  --gold:#8C5B00;--gold-mark:#C08A12;--gold-soft:#F8EDD3;--flame:#D2602A;
+  --good:#1B7743;--good-soft:#DBEFE2;--warn:#8A5806;--warn-soft:#F6EAD0;--bad:#AD3731;--bad-soft:#F6DEDB;--on-bad:#FFFFFF;
+  --on-member:#FFFFFF;--scrim:rgba(9,20,19,.44);
+  --c0:#0E8580;--c1:#B37400;--c2:#C43947;--c3:#2D57C0;--c4:#56841C;--c5:#7943BA;--c6:#B35321;--c7:#B73F86;
+  --shadow:0 1px 2px rgba(19,34,32,.05),0 10px 28px rgba(19,34,32,.10);
+  --f-display:"HQ Markazi","Markazi Text","HQ Vazir",Tahoma,serif;
+  --f-ui:"HQ Vazir",Vazirmatn,Vazir,Tahoma,"Segoe UI",system-ui,sans-serif;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#0B1312;--surface:#121C1B;--surface-2:#182423;--ink:#E3EDEB;--ink-2:#A1B2AF;--ink-3:#71837F;
+  --line:#25332F;--track:#22302E;
+  --accent:#33C2BA;--accent-ink:#04201E;--accent-soft:#113230;
+  --gold:#EFB443;--gold-mark:#EFB443;--gold-soft:#30260E;--flame:#F08A4B;
+  --good:#4FC985;--good-soft:#122E1F;--warn:#E6B04F;--warn-soft:#33270F;--bad:#F07B74;--bad-soft:#381715;--on-bad:#2A0907;
+  --on-member:#0A1413;--scrim:rgba(0,0,0,.62);
+  --c0:#35C2BB;--c1:#F0B33F;--c2:#F2737E;--c3:#7997F4;--c4:#9DCB5B;--c5:#B589EF;--c6:#F09261;--c7:#EE82C4;
+  --shadow:0 1px 2px rgba(0,0,0,.35),0 12px 30px rgba(0,0,0,.4);
+  color-scheme:dark;
+}}
+:root[data-theme="dark"]{
+  --bg:#0B1312;--surface:#121C1B;--surface-2:#182423;--ink:#E3EDEB;--ink-2:#A1B2AF;--ink-3:#71837F;
+  --line:#25332F;--track:#22302E;
+  --accent:#33C2BA;--accent-ink:#04201E;--accent-soft:#113230;
+  --gold:#EFB443;--gold-mark:#EFB443;--gold-soft:#30260E;--flame:#F08A4B;
+  --good:#4FC985;--good-soft:#122E1F;--warn:#E6B04F;--warn-soft:#33270F;--bad:#F07B74;--bad-soft:#381715;--on-bad:#2A0907;
+  --on-member:#0A1413;--scrim:rgba(0,0,0,.62);
+  --c0:#35C2BB;--c1:#F0B33F;--c2:#F2737E;--c3:#7997F4;--c4:#9DCB5B;--c5:#B589EF;--c6:#F09261;--c7:#EE82C4;
+  --shadow:0 1px 2px rgba(0,0,0,.35),0 12px 30px rgba(0,0,0,.4);
+  color-scheme:dark;
+}
+
+[hidden]{display:none!important}
+html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
+html.locked{overflow:hidden}
+body{background:var(--bg);color:var(--ink);font-family:var(--f-ui);font-size:15px;line-height:1.7}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--bg)}
+*,*::before,*::after{box-sizing:border-box}
+button,input,textarea{font-family:inherit}
+:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+b,strong{font-weight:800}
+
+.inner{max-width:640px;margin-inline:auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+.brand{display:flex;align-items:center;justify-content:space-between;gap:12px;padding-block:14px 2px}
+.brand-id{display:flex;align-items:center;gap:10px;min-width:0}
+.mark{width:38px;height:38px;flex:none}
+.mark-track{fill:none;stroke:var(--track);stroke-width:5}
+.mark-fill{fill:none;stroke:var(--accent);stroke-width:5}
+.brand-name{font:700 27px/1.1 var(--f-display);color:var(--ink)}
+.brand-tag{font-size:12.5px;color:var(--ink-3);line-height:1.5}
+.me-chip{appearance:none;display:inline-flex;align-items:center;gap:8px;max-width:46%;border:1px solid var(--line);background:var(--surface);color:var(--ink);border-radius:99px;padding-block:4px;padding-inline:4px 12px;font:700 13.5px/1.2 var(--f-ui);cursor:pointer}
+.me-chip span.me-name{overflow:hidden;text-overflow:ellipsis;white-space:nowrap;min-width:0}
+
+.tabs-band{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--bg)}
+.tabs{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:4px;padding:4px;margin-block:10px 6px;background:var(--surface);border:1px solid var(--line);border-radius:15px}
+.tab{appearance:none;border:0;background:transparent;color:var(--ink-2);font:700 14.5px/1.2 var(--f-ui);padding:11px 4px;border-radius:11px;cursor:pointer;min-width:0}
+.tab[aria-selected="true"]{background:var(--ink);color:var(--surface)}
+.tab:not([aria-selected="true"]):hover{color:var(--ink)}
+
+.view{display:flex;flex-direction:column;gap:14px;padding-block:6px 64px;min-width:0}
+.view > *{min-width:0}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:16px}
+.h2{margin:0;font:700 21px/1.35 var(--f-display);color:var(--ink);text-wrap:balance}
+.h2-row{display:flex;flex-wrap:wrap;align-items:baseline;justify-content:space-between;gap:2px 12px;margin-bottom:12px}
+.muted{color:var(--ink-3);font-size:13px;margin:0}
+.label{font-size:13px;font-weight:700;color:var(--ink-2)}
+.note{margin:0;font-size:13px;color:var(--ink-3);display:flex;gap:6px;align-items:center;justify-content:center;text-align:center}
+.note .ic{width:16px;height:16px}
+
+.ic{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;flex:none;display:inline-block;vertical-align:middle}
+.ic-fill{fill:currentColor;stroke:none}
+.ic-crown{fill:var(--gold-mark);stroke:var(--gold-mark);stroke-width:1.4;width:18px;height:18px}
+.ic-flame{fill:var(--flame);stroke:none;width:15px;height:15px}
+
+.btn{appearance:none;display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:48px;padding:0 18px;border-radius:13px;border:1px solid var(--line);background:var(--surface);color:var(--ink);font:700 15px/1.3 var(--f-ui);cursor:pointer;text-align:center}
+.btn.primary{background:var(--accent);border-color:var(--accent);color:var(--accent-ink)}
+.btn.danger{color:var(--bad)}
+.btn.danger.armed{background:var(--bad);border-color:var(--bad);color:var(--on-bad)}
+.btn.block{width:100%}
+.btn.sm{min-height:38px;padding:0 12px;font-size:13.5px;border-radius:11px}
+.btn:disabled{opacity:.55;cursor:default}
+.btn .ic{width:18px;height:18px}
+.link-btn{appearance:none;border:0;background:none;color:var(--accent);font:700 13.5px/1.4 var(--f-ui);padding:6px 2px;cursor:pointer}
+.icon-btn{appearance:none;width:44px;height:44px;border-radius:12px;border:1px solid var(--line);background:var(--surface);color:var(--ink);display:grid;place-items:center;cursor:pointer;flex:none;padding:0}
+.icon-btn:disabled{opacity:.32;cursor:default}
+.icon-btn.sm{width:36px;height:36px;border-radius:10px;border-color:transparent;background:transparent;color:var(--ink-3)}
+.icon-btn.sm .ic{width:18px;height:18px}
+
+.state-card{text-align:center;padding:44px 12px;display:flex;flex-direction:column;align-items:center;gap:10px;color:var(--ink-2)}
+.state-card h2{margin:0;color:var(--ink);font:700 25px/1.4 var(--f-display)}
+.state-card p{margin:0;max-width:30em}
+.spinner{width:34px;height:34px;border-radius:50%;border:3px solid var(--track);border-top-color:var(--accent);animation:hq-spin .9s linear infinite}
+
+.weekbar{display:flex;align-items:center;gap:10px}
+.weekbar-mid{flex:1;min-width:0;text-align:center}
+.weekbar-rel{font:800 13px/1.3 var(--f-ui);color:var(--accent)}
+.weekbar-range{font:700 21px/1.35 var(--f-display);color:var(--ink)}
+.weekbar-back{display:flex;justify-content:center;margin-top:-8px}
+
+.banner{display:flex;gap:10px;align-items:flex-start;padding:12px 14px;border-radius:15px;background:var(--accent-soft);color:var(--ink);font-size:14px}
+.banner > .ic{color:var(--accent);margin-top:3px}
+.banner.warn{background:var(--warn-soft)}
+.banner.warn > .ic{color:var(--warn)}
+.banner.gold{background:var(--gold-soft)}
+.banner-body{flex:1;min-width:0;display:flex;flex-direction:column;gap:2px}
+.banner-actions{display:flex;flex-wrap:wrap;gap:12px}
+
+.summary{display:flex;align-items:center;gap:16px}
+.ring-box{position:relative;flex:none}
+.ring{display:block}
+.ring-track{fill:none;stroke:var(--track)}
+.ring-val{fill:none;stroke:var(--mc,var(--accent));stroke-linecap:round}
+.ring-center{position:absolute;inset:0;display:grid;place-items:center;font:800 22px/1 var(--f-ui);color:var(--ink);font-variant-numeric:tabular-nums}
+.summary-body{min-width:0;display:flex;flex-direction:column;gap:6px}
+.summary-title{margin:0;font:700 21px/1.3 var(--f-display);text-wrap:balance}
+.summary-line{margin:0;color:var(--ink-2);font-size:14px}
+.chips{display:flex;flex-wrap:wrap;gap:6px}
+.chip{display:inline-flex;align-items:center;gap:5px;padding:3px 10px;border-radius:99px;font-size:12.5px;font-weight:700;background:var(--surface-2);color:var(--ink-2);border:1px solid var(--line);line-height:1.6}
+.chip.good{background:var(--good-soft);color:var(--good);border-color:transparent}
+.chip.warn{background:var(--warn-soft);color:var(--warn);border-color:transparent}
+.chip.bad{background:var(--bad-soft);color:var(--bad);border-color:transparent}
+.chip.gold{background:var(--gold-soft);color:var(--gold);border-color:transparent}
+.chip.acc{background:var(--accent-soft);color:var(--accent);border-color:transparent}
+
+.goals{display:flex;flex-direction:column;gap:10px}
+.goal{background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:14px 14px 12px;display:flex;flex-direction:column;gap:10px}
+.goal.complete{border-color:var(--mc)}
+.goal-head{display:flex;align-items:flex-start;gap:6px}
+.goal-titles{flex:1;min-width:0;display:flex;flex-direction:column;gap:2px}
+.goal-title{margin:0;font:800 16.5px/1.45 var(--f-ui);overflow-wrap:anywhere}
+.goal-meta{display:flex;flex-wrap:wrap;align-items:center;gap:2px 10px;font-size:13px;color:var(--ink-2)}
+.goal-meta b{color:var(--ink)}
+.goal-meta .ok{color:var(--good);font-weight:800;display:inline-flex;align-items:center;gap:3px}
+.goal-meta .ok .ic{width:16px;height:16px;stroke-width:2.6}
+.goal-meta .bad{color:var(--bad);font-weight:700}
+.goal-meta .warn{color:var(--warn);font-weight:700}
+.bar{height:7px;border-radius:99px;background:var(--track);overflow:hidden}
+.bar > span{display:block;height:100%;border-radius:99px;background:var(--mc,var(--accent))}
+
+.days{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:6px}
+.day{appearance:none;border:0;background:none;padding:0;margin:0;font:inherit;color:var(--ink-3);display:flex;flex-direction:column;align-items:center;gap:5px;cursor:pointer;min-width:0;-webkit-tap-highlight-color:transparent}
+.day-name{font-size:12px;line-height:1;font-weight:700}
+.day-box{width:100%;max-width:48px;aspect-ratio:1/1;border-radius:12px;display:grid;place-items:center;background:var(--surface-2);border:1.5px solid var(--line);color:var(--ink-3);transition:transform .12s ease}
+.day-box .ic{width:22px;height:22px;stroke-width:2.8}
+.day-val{font-weight:800;font-size:13px;line-height:1;font-variant-numeric:tabular-nums;color:var(--ink)}
+.day.done .day-box{background:var(--mc);border-color:var(--mc);color:var(--on-member)}
+.day.part .day-box{background:var(--surface-2);background:color-mix(in srgb,var(--mc) 15%,var(--surface));border-color:var(--mc)}
+.day.today .day-name{color:var(--mc);font-weight:800}
+.day.today:not(.done):not(.part) .day-box{border:2px solid var(--mc);background:var(--surface)}
+.day.future .day-box{border-style:dashed;background:transparent}
+.day:disabled{cursor:default}
+.day:disabled:not(.done):not(.part) .day-box{opacity:.55}
+.day:not(:disabled):active .day-box{transform:scale(.92)}
+@media (hover:hover){.day:not(:disabled):hover .day-box{border-color:var(--mc)}}
+
+.add-goal{appearance:none;display:flex;align-items:center;justify-content:center;gap:8px;width:100%;min-height:54px;border:1.5px dashed var(--line);border-radius:18px;background:transparent;color:var(--accent);font:800 15px/1.3 var(--f-ui);cursor:pointer}
+.add-goal small{color:var(--ink-3);font-weight:600}
+.empty{display:flex;flex-direction:column;gap:12px}
+.empty p{margin:0;color:var(--ink-2)}
+.row{display:flex;flex-wrap:wrap;gap:8px}
+.templates{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
+.tpl{appearance:none;display:flex;flex-direction:column;align-items:flex-start;gap:1px;text-align:start;border:1px solid var(--line);background:var(--surface-2);color:var(--ink);border-radius:13px;padding:10px 12px;font:800 14px/1.4 var(--f-ui);cursor:pointer;min-width:0}
+.tpl small{font-weight:600;font-size:12px;color:var(--ink-3)}
+
+.rings{display:flex;flex-wrap:wrap;justify-content:center;gap:16px 10px}
+.ring-item{display:flex;flex-direction:column;align-items:center;gap:6px;width:78px;position:relative}
+.ring-item .ring-center{font-size:16px}
+.ring-item.idle .ring-center{color:var(--ink-3);font-size:13px}
+.ring-name{font-weight:800;font-size:13.5px;max-width:100%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;line-height:1.4}
+.ring-sub{font-size:11.5px;color:var(--ink-3);line-height:1.2;margin-top:-4px}
+.ring-crown{position:absolute;top:-13px;left:50%;transform:translateX(-50%);z-index:1;display:grid;place-items:center;width:26px;height:26px;border-radius:50%;background:var(--surface)}
+.team-line{font-size:13.5px;color:var(--ink-2)}
+.team-line b{color:var(--ink)}
+.champ{margin-top:14px;display:flex;align-items:center;gap:8px;justify-content:center;padding:10px 12px;border-radius:13px;background:var(--gold-soft);color:var(--ink);font-size:14px;text-align:center;flex-wrap:wrap}
+
+.stake{background:var(--gold-soft);border-color:transparent}
+.stake-head{display:flex;align-items:center;justify-content:space-between;gap:10px}
+.stake-label{font-weight:800;color:var(--gold);font-size:13px}
+.stake-text{margin:4px 0 0;font:700 21px/1.5 var(--f-display);overflow-wrap:anywhere}
+.stake-by{margin:0;font-size:12.5px;color:var(--ink-2)}
+.stake-empty{margin:4px 0 0;color:var(--ink-2);font-size:14px}
+.stake-result{margin:10px 0 0;padding-top:10px;border-top:1px solid var(--line);font-size:14px;display:flex;flex-direction:column;gap:2px}
+
+.board{padding:6px 0}
+.board > .h2-row{padding:10px 16px 0;margin-bottom:4px}
+.mrow + .mrow{border-top:1px solid var(--line)}
+.mrow-main{width:100%;appearance:none;border:0;background:transparent;font:inherit;color:inherit;text-align:start;display:flex;align-items:center;gap:10px;padding:12px 16px;cursor:pointer}
+.mrow-rank{width:24px;flex:none;text-align:center;font-weight:800;color:var(--ink-3);font-variant-numeric:tabular-nums;display:grid;place-items:center}
+.av{--s:36px;width:var(--s);height:var(--s);border-radius:50%;display:inline-grid;place-items:center;background:var(--mc);color:var(--on-member);font:800 calc(var(--s) * .44)/1 var(--f-ui);flex:none}
+.mrow-info{flex:1;min-width:0;display:flex;flex-direction:column;gap:5px}
+.mrow-name{font-weight:800;font-size:15px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;line-height:1.4}
+.mrow-name small{font-weight:600;color:var(--ink-3);font-size:12px}
+.mrow-sub{font-size:12.5px;color:var(--ink-2);display:flex;flex-wrap:wrap;align-items:center;gap:0 12px;line-height:1.5}
+.mrow-sub .streak{display:inline-flex;align-items:center;gap:2px;font-weight:800;color:var(--flame)}
+.mrow-pct{font:800 18px/1 var(--f-ui);font-variant-numeric:tabular-nums;flex:none;min-width:46px;text-align:end}
+.mrow-chev{color:var(--ink-3);display:grid;place-items:center;transition:transform .2s ease}
+.mrow-chev .ic{width:18px;height:18px}
+.mrow.open .mrow-chev{transform:rotate(180deg)}
+.mrow-detail{padding:0 16px 14px;display:flex;flex-direction:column;gap:8px}
+.pace-ahead{color:var(--good);font-weight:800}
+.pace-on{color:var(--accent);font-weight:800}
+.pace-behind{color:var(--bad);font-weight:800}
+.pace-done{color:var(--good);font-weight:800}
+.mini-goal{background:var(--surface-2);border-radius:13px;padding:10px 12px;display:flex;flex-direction:column;gap:8px}
+.mini-top{display:flex;justify-content:space-between;align-items:baseline;gap:10px;font-size:13.5px}
+.mini-title{font-weight:800;min-width:0;overflow-wrap:anywhere}
+.mini-val{color:var(--ink-2);flex:none;font-variant-numeric:tabular-nums}
+.mini-val.ok{color:var(--good);font-weight:800}
+.mini-days{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:4px}
+.mini-day{height:24px;border-radius:7px;background:var(--track);display:grid;place-items:center;font-size:11px;color:var(--ink-3);font-weight:800;line-height:1;min-width:0;overflow:hidden}
+.mini-day.on{background:var(--mc);color:var(--on-member)}
+.mini-day.part{background:var(--track);background:color-mix(in srgb,var(--mc) 24%,var(--surface));color:var(--ink)}
+.mini-day.today{box-shadow:inset 0 0 0 1.5px var(--mc)}
+.mini-day.future{background:transparent;box-shadow:inset 0 0 0 1px var(--line)}
+.detail-actions{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.detail-empty{margin:0;color:var(--ink-3);font-size:13.5px}
+
+.wmap-grid{display:flex;flex-direction:column;gap:6px}
+.wmap-row{display:grid;grid-template-columns:minmax(0,1.5fr) repeat(7,minmax(0,1fr));gap:5px;align-items:center}
+.wmap-name{font-weight:800;font-size:13px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.wmap-day{text-align:center;font-size:11.5px;color:var(--ink-3);font-weight:800}
+.wmap-day.today{color:var(--accent)}
+.wmap-cell{position:relative;height:26px;border-radius:7px;background:var(--track);overflow:hidden}
+.wmap-cell > i{position:absolute;inset:0;background:var(--mc)}
+.wmap-cell.future{background:transparent;box-shadow:inset 0 0 0 1px var(--line)}
+.wmap-legend{display:flex;align-items:center;gap:6px;justify-content:flex-end;margin-top:10px;font-size:12px;color:var(--ink-3)}
+.wmap-legend .sw{width:14px;height:14px;border-radius:4px;background:var(--accent)}
+
+.feed-list{display:flex;flex-direction:column}
+.fitem{display:flex;align-items:center;gap:10px;padding:10px 0}
+.fitem + .fitem{border-top:1px solid var(--line)}
+.fbody{flex:1;min-width:0}
+.fline{font-size:14px;overflow-wrap:anywhere;line-height:1.6}
+.fmeta{font-size:12px;color:var(--ink-3);line-height:1.6}
+.fmeta .gold{color:var(--gold);font-weight:700}
+.kudos{appearance:none;border:1px solid var(--line);background:var(--surface);color:var(--ink-2);font:800 12.5px/1 var(--f-ui);padding:9px 11px;border-radius:99px;cursor:pointer;display:inline-flex;align-items:center;gap:5px;flex:none;white-space:nowrap}
+.kudos .ic{width:14px;height:14px}
+.kudos.on{background:var(--gold-soft);border-color:var(--gold-mark);color:var(--gold)}
+.kudos .kc{min-width:18px;height:18px;padding:0 5px;border-radius:99px;background:var(--surface-2);color:var(--ink);display:inline-grid;place-items:center;font-size:11.5px}
+.kudos.on .kc{background:var(--surface);color:var(--gold)}
+.kudos:disabled{opacity:.6;cursor:default}
+.kudos-count{font-size:12px;color:var(--gold);font-weight:800;flex:none;white-space:nowrap}
+.feed-more{display:flex;justify-content:center;margin-top:4px}
+
+.chart-wrap{overflow-x:auto}
+.chart{display:block;width:100%;height:auto;direction:ltr}
+.ch-grid{stroke:var(--line);stroke-width:1}
+.ch-goal{stroke:var(--gold-mark);stroke-width:1.5;stroke-dasharray:5 5}
+.ch-label{fill:var(--ink-3);font-family:var(--f-ui);font-size:11.5px;font-weight:700}
+.ch-label.gold{fill:var(--gold)}
+.ch-team{fill:none;stroke:var(--ink-3);stroke-width:2;stroke-dasharray:2 5;stroke-linecap:round}
+.ch-m polyline{fill:none;stroke:var(--mc);stroke-width:2.6;stroke-linejoin:round;stroke-linecap:round}
+.ch-m circle{fill:var(--mc);stroke:var(--surface);stroke-width:2}
+.legend{display:flex;flex-wrap:wrap;gap:6px 14px;margin-top:10px;font-size:13px;color:var(--ink-2)}
+.legend-item{display:inline-flex;align-items:center;gap:6px}
+.legend-dot{width:10px;height:10px;border-radius:50%;background:var(--mc)}
+.legend-dash{width:16px;height:0;border-top:2px dashed var(--ink-3)}
+.fame-row{display:flex;align-items:center;gap:10px;padding:10px 0}
+.fame-row + .fame-row{border-top:1px solid var(--line)}
+.fame-main{flex:1;min-width:0;display:flex;flex-direction:column;gap:2px}
+.fame-name{font-weight:800;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.fame-stats{display:flex;flex-wrap:wrap;gap:0 12px;font-size:12.5px;color:var(--ink-2)}
+.fame-stats b{color:var(--ink)}
+.fame-wins{flex:none;display:inline-flex;align-items:center;gap:4px;font-weight:800;color:var(--gold);font-variant-numeric:tabular-nums}
+.arch-row{width:100%;appearance:none;border:0;background:transparent;color:inherit;font:inherit;display:grid;grid-template-columns:minmax(0,1fr) auto auto;gap:10px;align-items:center;padding:11px 0;cursor:pointer;text-align:start}
+.arch-row + .arch-row{border-top:1px solid var(--line)}
+.arch-week{font-weight:800;min-width:0}
+.arch-week small{display:block;font-weight:600;color:var(--ink-3);font-size:12px}
+.arch-champ{display:inline-flex;align-items:center;gap:4px;font-size:13px;color:var(--ink-2);max-width:9em;overflow:hidden;white-space:nowrap;text-overflow:ellipsis}
+.arch-avg{font-weight:800;font-variant-numeric:tabular-nums;min-width:42px;text-align:end}
+
+.onboard{display:flex;flex-direction:column;gap:16px;padding-top:8px}
+.display{font:700 34px/1.25 var(--f-display);margin:0;text-wrap:balance}
+.lead{margin:0;font-size:16px;color:var(--ink-2);max-width:34em}
+.steps{list-style:none;margin:0;padding:0;display:grid;gap:8px}
+.steps li{display:flex;gap:10px;align-items:center;background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:10px 12px}
+.steps .n{width:28px;height:28px;border-radius:50%;display:grid;place-items:center;background:var(--accent-soft);color:var(--accent);font-weight:800;flex:none}
+.join{display:flex;flex-direction:column;gap:14px}
+.already{display:flex;flex-direction:column;gap:6px}
+.avatars{display:flex;flex-wrap:wrap;gap:8px}
+.avatars .who{display:inline-flex;align-items:center;gap:6px;font-weight:700;font-size:13.5px;background:var(--surface);border:1px solid var(--line);border-radius:99px;padding-block:3px;padding-inline:3px 10px}
+.claim{display:flex;flex-direction:column;gap:10px}
+.claim-list{display:flex;flex-direction:column;gap:8px}
+.claim-btn{appearance:none;display:flex;align-items:center;gap:10px;border:1px solid var(--line);background:var(--surface-2);color:var(--ink);border-radius:13px;padding:8px 12px;font:700 14.5px/1.3 var(--f-ui);cursor:pointer;text-align:start}
+
+.sheet-back{position:fixed;inset:0;z-index:50;background:var(--scrim);display:flex;align-items:flex-end;justify-content:center;animation:hq-fade .16s ease}
+.sheet{width:100%;max-width:560px;max-height:90vh;max-height:90dvh;overflow-y:auto;overscroll-behavior:contain;background:var(--surface);color:var(--ink);border-radius:22px 22px 0 0;padding-top:16px;padding-bottom:calc(20px + env(safe-area-inset-bottom,0px));padding-left:max(18px,env(safe-area-inset-left,0px));padding-right:max(18px,env(safe-area-inset-right,0px));box-shadow:var(--shadow);animation:hq-up .22s cubic-bezier(.2,.8,.2,1)}
+@media (min-width:720px){.sheet-back{align-items:center;padding:24px}.sheet{border-radius:22px;padding-bottom:20px}}
+.sheet-form{display:flex;flex-direction:column;gap:16px}
+.sheet-head{display:flex;align-items:center;justify-content:space-between;gap:10px}
+.sheet-head h2{margin:0;font:700 23px/1.3 var(--f-display);min-width:0;overflow-wrap:anywhere}
+.sheet-sub{margin:-8px 0 0;color:var(--ink-2);font-size:13.5px}
+.field{display:flex;flex-direction:column;gap:7px;min-width:0}
+.field > label{font-size:13px;font-weight:700;color:var(--ink-2)}
+.input{width:100%;min-height:48px;border-radius:12px;border:1.5px solid var(--line);background:var(--surface-2);color:var(--ink);font:500 16px/1.5 var(--f-ui);padding:10px 12px}
+textarea.input{resize:vertical;min-height:76px}
+.input:focus{outline:none;border-color:var(--accent);background:var(--surface)}
+.input::placeholder{color:var(--ink-3);opacity:1}
+.num{text-align:center;font-weight:800;font-size:20px;font-variant-numeric:tabular-nums}
+.stepper{display:flex;align-items:center;gap:8px}
+.stepper .input{flex:1;min-width:0}
+.stepper-unit{min-width:56px;color:var(--ink-2);font-weight:800;overflow-wrap:anywhere}
+.seg{display:grid;grid-template-columns:1fr 1fr;gap:4px;padding:4px;background:var(--surface-2);border:1px solid var(--line);border-radius:14px}
+.seg-btn{appearance:none;border:0;background:transparent;font:800 14px/1.35 var(--f-ui);color:var(--ink-2);padding:11px 6px;border-radius:10px;cursor:pointer}
+.seg-btn[aria-checked="true"]{background:var(--surface);color:var(--ink);box-shadow:0 1px 3px rgba(0,0,0,.12)}
+.daypick{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:6px}
+.dp{appearance:none;min-height:46px;border-radius:12px;border:1.5px solid var(--line);background:var(--surface-2);color:var(--ink);font:800 17px/1 var(--f-ui);cursor:pointer;padding:0;min-width:0}
+.dp[aria-pressed="true"]{background:var(--accent);border-color:var(--accent);color:var(--accent-ink)}
+.hint{margin:0;font-size:12.5px;color:var(--ink-3)}
+.chips-row{display:flex;flex-wrap:wrap;gap:6px}
+.chips-col{display:flex;flex-direction:column;gap:8px}
+.chip-btn{appearance:none;border:1px solid var(--line);background:var(--surface);color:var(--ink);font:700 13.5px/1.3 var(--f-ui);padding:9px 13px;border-radius:99px;cursor:pointer}
+.chip-btn.wide{border-radius:13px;text-align:start;padding:12px 14px;font-size:14.5px;background:var(--surface-2)}
+.chip-btn:disabled{opacity:.5;cursor:default}
+.form-err{margin:0;color:var(--bad);font-size:13.5px;font-weight:700}
+.form-err:empty{display:none}
+.sheet-actions{display:flex;flex-wrap:wrap;gap:8px}
+.sheet-actions .btn.primary{flex:1 1 160px}
+.sheet-foot{display:flex;flex-direction:column;gap:10px;padding-top:12px;border-top:1px solid var(--line)}
+.admin-row{display:flex;align-items:center;gap:10px}
+.admin-row .nm{flex:1;min-width:0;font-weight:700;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.swatches{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px}
+.swatch{position:relative;display:flex;flex-direction:column;align-items:center;gap:4px;padding:9px 2px 7px;border-radius:12px;border:1.5px solid var(--line);cursor:pointer;min-width:0}
+.swatch input{position:absolute;opacity:0;inset:0;margin:0;width:100%;height:100%;cursor:pointer}
+.swatch-dot{width:26px;height:26px;border-radius:50%;background:var(--mc)}
+.swatch-name{font-size:11.5px;font-weight:700;color:var(--ink-2);text-align:center;line-height:1.3}
+.swatch-name small{display:block;font-weight:600;color:var(--ink-3);font-size:10.5px}
+.swatch.sel{border-color:var(--mc);background:var(--surface-2)}
+.swatch:focus-within{outline:2px solid var(--accent);outline-offset:2px}
+
+.mono{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;direction:ltr;unicode-bidi:plaintext}
+input.mono{text-align:left;font-size:14px}
+.invite{display:flex;flex-direction:column;gap:12px}
+.setup summary{list-style:none;cursor:pointer;display:flex;align-items:baseline;justify-content:space-between;gap:10px;flex-wrap:wrap}
+.setup summary::-webkit-details-marker{display:none}
+.setup summary::after{content:"+";font:700 22px/1 var(--f-ui);color:var(--accent)}
+.setup[open] summary::after{content:"−"}
+.setup-body{display:flex;flex-direction:column;gap:14px;margin-top:12px}
+.steps.small li{font-size:13.5px;padding:9px 11px}
+.steps.small .n{width:24px;height:24px;font-size:13px}
+.toast{position:fixed;z-index:60;left:50%;bottom:calc(20px + env(safe-area-inset-bottom,0px));transform:translate(-50%,16px);opacity:0;pointer-events:none;width:max-content;max-width:min(92vw,460px);background:var(--ink);color:var(--surface);font:700 14px/1.6 var(--f-ui);padding:10px 16px;border-radius:14px;box-shadow:var(--shadow);transition:opacity .2s ease,transform .2s ease;text-align:center}
+.toast.show{opacity:1;transform:translate(-50%,0)}
+
+@keyframes hq-spin{to{transform:rotate(360deg)}}
+@keyframes hq-fade{from{opacity:0}}
+@keyframes hq-up{from{transform:translateY(28px);opacity:.5}}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important}}
+@media (max-width:370px){.templates{grid-template-columns:1fr}.brand-tag{display:none}}
+</style>
+</head>
+<body>
+
+<div class="shell" dir="rtl" lang="fa">
+  <header>
+    <div class="inner brand">
+      <div class="brand-id">
+        <svg class="mark" viewBox="0 0 40 40" aria-hidden="true">
+          <circle class="mark-track" cx="20" cy="20" r="15" stroke-dasharray="10.66 2.8" transform="rotate(-90 20 20)"/>
+          <circle class="mark-fill" cx="20" cy="20" r="15" stroke-dasharray="10.66 2.8 10.66 2.8 10.66 2.8 10.66 2.8 10.66 2.8 0 100" transform="rotate(-90 20 20)"/>
+        </svg>
+        <div>
+          <div class="brand-name">هم‌قدم</div>
+          <div class="brand-tag">هر هفته، با هم یه قدم جلوتر</div>
+        </div>
+      </div>
+      <button type="button" class="me-chip" id="me-chip" data-act="profile" hidden></button>
+    </div>
+  </header>
+  <div class="tabs-band" id="tabs-band" hidden>
+    <div class="inner">
+      <nav class="tabs" role="tablist" aria-label="بخش‌ها">
+        <button type="button" class="tab" role="tab" id="tab-me" data-act="tab" data-tab="me" aria-selected="true">هفته‌ی من</button>
+        <button type="button" class="tab" role="tab" id="tab-race" data-act="tab" data-tab="race" aria-selected="false">رقابت</button>
+        <button type="button" class="tab" role="tab" id="tab-trend" data-act="tab" data-tab="trend" aria-selected="false">روند</button>
+      </nav>
+    </div>
+  </div>
+  <main class="inner view" id="view">
+    <section class="state-card">
+      <div class="spinner" aria-hidden="true"></div>
+      <h2>در حال باز کردن گروه</h2>
+      <p>هدف‌های هفته‌ی هر نفر، تیک‌های روزانه و جدول رقابت اینجا نشون داده میشه.</p>
+    </section>
+  </main>
+</div>
+<div id="sheet-root" dir="rtl" lang="fa"></div>
+<div class="toast" id="toast" role="status" aria-live="polite" dir="rtl"></div>
+
+<script>
+(function () {
+  'use strict';
+  var root = document.documentElement;
+  root.lang = 'fa';
+  root.dir = 'rtl';
+  /* ================= standalone sync layer: the group's data lives in a private GitHub repository ================= */
+  const NET = (function () {
+    const KEY = 'hq.';
+    const ls = {
+      get(k) { try { return window.localStorage.getItem(KEY + k); } catch (e) { return null; } },
+      set(k, v) { try { window.localStorage.setItem(KEY + k, String(v)); } catch (e) { /* storage blocked */ } },
+      del(k) { try { window.localStorage.removeItem(KEY + k); } catch (e) { /* storage blocked */ } }
+    };
+    const API = (ls.get('api') || 'https://api.github.com').replace(/\/+$/, '');
+    const REPO_RE = /^[A-Za-z0-9-]{1,39}\/[A-Za-z0-9._-]{1,100}$/;
+    const isO = (v) => v !== null && typeof v === 'object' && !Array.isArray(v);
+    function freeze(o) { if (o && typeof o === 'object' && !Object.isFrozen(o)) { Object.freeze(o); for (const k of Object.keys(o)) freeze(o[k]); } return o; }
+    const clone = (o) => JSON.parse(JSON.stringify(o));
+    function mrg(a, b) { const out = isO(a) ? Object.assign({}, a) : {}; for (const k of Object.keys(b)) { const bv = b[k]; out[k] = isO(bv) ? mrg(isO(out[k]) ? out[k] : {}, bv) : bv; } return out; }
+    const SEGRE = /^[A-Za-z0-9_\-.~:@+]{1,200}$/;
+    function checkPath(p, even) {
+      if (typeof p !== 'string' || !p) throw new TypeError('path must be a non-empty string');
+      const segs = p.split('/');
+      for (const s of segs) if (!SEGRE.test(s) || s === '.' || s === '..') throw new TypeError('bad path segment in ' + p);
+      if ((segs.length % 2 === 0) !== even) throw new TypeError('wrong segment count for ' + p);
+    }
+    const idOf = (p) => p.slice(p.lastIndexOf('/') + 1);
+    const err = (code, extra) => Object.assign({ code: code, message: code }, extra || {});
+    const wait = (ms) => new Promise((r) => setTimeout(r, ms));
+    const YMD = /^\d{4}-\d{2}-\d{2}$/;
+
+    /* text <-> base64 (UTF-8 safe) */
+    function toB64(str) {
+      const bytes = new TextEncoder().encode(str);
+      let bin = '';
+      for (let i = 0; i < bytes.length; i += 0x8000) bin += String.fromCharCode.apply(null, bytes.subarray(i, i + 0x8000));
+      return btoa(bin);
+    }
+    function fromB64(b64) {
+      const bin = atob(String(b64 || '').replace(/\s+/g, ''));
+      const bytes = new Uint8Array(bin.length);
+      for (let i = 0; i < bin.length; i++) bytes[i] = bin.charCodeAt(i);
+      return new TextDecoder('utf-8').decode(bytes);
+    }
+    const b64url = (s) => btoa(s).replace(/\+/g, '-').replace(/\//g, '_').replace(/=+$/, '');
+    function unb64url(s) { s = String(s).replace(/-/g, '+').replace(/_/g, '/'); while (s.length % 4) s += '='; return atob(s); }
+
+    /* group key: which repository and which token. It travels in the invite link. */
+    function parseKey(k) {
+      try {
+        const j = JSON.parse(unb64url(k));
+        if (j && typeof j.r === 'string' && REPO_RE.test(j.r) && typeof j.t === 'string' && /^[A-Za-z0-9_]{20,255}$/.test(j.t)) return { repo: j.r, token: j.t, branch: typeof j.b === 'string' && /^[A-Za-z0-9._\/-]{1,100}$/.test(j.b) ? j.b : 'main' };
+      } catch (e) { /* not a key */ }
+      return null;
+    }
+    const makeKey = (c) => b64url(JSON.stringify({ r: c.repo, t: c.token, b: c.branch || 'main' }));
+    function keyFromText(text) {
+      const t = String(text || '').trim();
+      const m = t.match(/[?&#]k=([A-Za-z0-9_-]+)/);
+      return parseKey(m ? m[1] : t);
+    }
+
+    let cfg = null, owner = false;
+    try {
+      const q = new URLSearchParams(location.search);
+      const c = q.get('k') ? parseKey(q.get('k')) : null;
+      if (c) { cfg = c; ls.set('cfg', JSON.stringify(c)); }
+      if (q.get('o') === '1') { owner = true; ls.set('owner', '1'); }
+    } catch (e) { /* ignore */ }
+    if (!cfg) { try { const c = JSON.parse(ls.get('cfg') || 'null'); if (c && REPO_RE.test(c.repo) && c.token) cfg = { repo: c.repo, token: c.token, branch: c.branch || 'main' }; } catch (e) { /* ignore */ } }
+    if (!owner) owner = ls.get('owner') === '1';
+    const base = () => location.origin + location.pathname;
+    function linkFor(withOwner) {
+      if (!cfg) return base();
+      return base() + '?k=' + makeKey(cfg) + (withOwner && owner ? '&o=1' : '');
+    }
+    // keep the key in the address bar, so Add to Home Screen carries it into the installed app
+    try { if (cfg) { const want = linkFor(true); if (location.href.split('#')[0] !== want) history.replaceState(null, '', want + location.hash); } } catch (e) { /* ignore */ }
+
+    let online = true, authLostFn = null, onlineFn = null;
+    function setOnline(v) { if (online !== v) { online = v; if (onlineFn) try { onlineFn(v); } catch (e) { /* ignore */ } } }
+
+    async function gh(method, path, body, opts) {
+      opts = opts || {};
+      const token = opts.token || (cfg && cfg.token);
+      const headers = { 'Accept': 'application/vnd.github+json', 'X-GitHub-Api-Version': '2022-11-28' };
+      if (token) headers['Authorization'] = 'Bearer ' + token;
+      if (body) headers['Content-Type'] = 'application/json';
+      if (opts.etag) headers['If-None-Match'] = opts.etag;
+      let r;
+      try { r = await fetch(API + path, { method: method, headers: headers, body: body ? JSON.stringify(body) : undefined, cache: 'no-store' }); }
+      catch (e) { setOnline(false); throw err('unavailable', { net: true }); }
+      setOnline(true);
+      if (r.status === 304) return { status: 304, etag: opts.etag };
+      let j = null;
+      try { j = await r.json(); } catch (e) { j = null; }
+      const msg = (j && j.message) || '';
+      if (r.status === 401) { if (!opts.token && authLostFn) try { authLostFn(); } catch (e) { /* ignore */ } throw err('not_granted', { auth: true, status: 401 }); }
+      if (r.status === 429 || (r.status === 403 && (r.headers.get('x-ratelimit-remaining') === '0' || /rate limit/i.test(msg)))) throw err('resource_exhausted', { status: r.status });
+      if (r.status === 403) throw err('invalid_argument', { perm: true, status: 403 });
+      if (r.status === 404) throw err('invalid_argument', { missing: true, status: 404 });
+      if (r.status === 409 || r.status === 422) throw err('invalid_argument', { conflict: true, status: r.status, empty: /empty/i.test(msg) });
+      if (!r.ok) throw err('unavailable', { status: r.status });
+      return { status: r.status, json: j, etag: r.headers.get('etag') };
+    }
+
+    /* how app documents map onto files in the repository */
+    function fileOf(p) {
+      const i = p.indexOf('/');
+      const col = p.slice(0, i), id = p.slice(i + 1);
+      if (col === 'members') return { file: 'members.json', key: id };
+      if (col === 'plans' && YMD.test(id.slice(0, 10))) return { file: 'plans/' + id.slice(0, 10) + '.json', key: id };
+      if (col === 'social' && YMD.test(id)) return { file: 'social/' + id + '.json', key: id };
+      throw err('invalid_argument');
+    }
+    function colOf(file) {
+      if (file === 'members.json') return 'members';
+      if (/^plans\/\d{4}-\d{2}-\d{2}\.json$/.test(file)) return 'plans';
+      if (/^social\/\d{4}-\d{2}-\d{2}\.json$/.test(file)) return 'social';
+      return null;
+    }
+
+    const files = new Map();      // file -> {sha, data}
+    const blobCache = new Map();  // blob sha -> parsed data
+    const pending = new Map();    // doc path -> {data|null, seq}
+    const listeners = new Set();
+    let head = null, refTag = null, loaded = false, seq = 0, timer = 0, started = false, fails = 0, cacheTimer = 0;
+    let firstWaiters = [];
+    try {
+      const c = JSON.parse(ls.get('cache') || 'null');
+      if (c && cfg && c.repo === cfg.repo && isO(c.files)) {
+        for (const f of Object.keys(c.files)) { const e = c.files[f]; if (e && typeof e.sha === 'string' && isO(e.data) && colOf(f)) files.set(f, { sha: e.sha, data: freeze(e.data) }); }
+        head = typeof c.head === 'string' ? c.head : null;
+      }
+    } catch (e) { /* ignore broken cache */ }
+    function saveCache() {
+      clearTimeout(cacheTimer);
+      cacheTimer = setTimeout(() => {
+        if (!cfg) return;
+        const out = {};
+        for (const [f, e] of files) out[f] = e;
+        const s = JSON.stringify({ repo: cfg.repo, head: head, files: out, at: Date.now() });
+        if (s.length < 3500000) ls.set('cache', s);
+      }, 700);
+    }
+
+    let lock = Promise.resolve();
+    function serial(fn) { const p = lock.then(fn, fn); lock = p.catch(() => {}); return p; }
+
+    function docValue(p) {
+      if (pending.has(p)) return pending.get(p).data;
+      let loc;
+      try { loc = fileOf(p); } catch (e) { return undefined; }
+      const f = files.get(loc.file);
+      const v = f && isO(f.data) ? f.data[loc.key] : undefined;
+      return isO(v) ? v : undefined;
+    }
+    function snapDoc(p, d, fromCache) {
+      const exists = !!d;
+      return Object.freeze({ id: idOf(p), exists: exists, data: () => (exists ? d : undefined), metadata: Object.freeze({ fromCache: fromCache, hasPendingWrites: pending.has(p) }) });
+    }
+    function colDocs(col, fromCache) {
+      const paths = new Set();
+      for (const [f, e] of files) if (colOf(f) === col && isO(e.data)) for (const k of Object.keys(e.data)) paths.add(col + '/' + k);
+      for (const p of pending.keys()) if (p.indexOf(col + '/') === 0) paths.add(p);
+      const docs = [];
+      for (const p of paths) { const d = docValue(p); if (d) docs.push(snapDoc(p, d, fromCache)); }
+      docs.sort((a, b) => (a.id < b.id ? -1 : a.id > b.id ? 1 : 0));
+      return docs;
+    }
+    function deliver(l) {
+      if (l.dead) return;
+      const fromCache = !loaded;
+      const docs = colDocs(l.path, fromCache);
+      const key = JSON.stringify(docs.map((d) => [d.id, d.data(), d.metadata.hasPendingWrites])) + '|' + fromCache;
+      if (key === l.key) return;
+      l.key = key;
+      const snap = Object.freeze({ docs: docs, size: docs.length, empty: !docs.length, docChanges: () => [], metadata: Object.freeze({ fromCache: fromCache, hasPendingWrites: docs.some((d) => d.metadata.hasPendingWrites) }) });
+      try { l.next(snap); } catch (e) { setTimeout(() => { throw e; }); }
+    }
+    const notify = () => { for (const l of listeners) deliver(l); };
+
+    async function blobData(sha) {
+      if (blobCache.has(sha)) return blobCache.get(sha);
+      const r = await gh('GET', '/repos/' + cfg.repo + '/git/blobs/' + sha);
+      let data = {};
+      try { data = JSON.parse(fromB64(r.json && r.json.content)); } catch (e) { data = {}; }
+      if (!isO(data)) data = {};
+      blobCache.set(sha, data);
+      return data;
+    }
+    async function syncTo(commit) {
+      const t = await gh('GET', '/repos/' + cfg.repo + '/git/trees/' + commit + '?recursive=1');
+      const want = new Map();
+      for (const e of (t.json && t.json.tree) || []) if (e && e.type === 'blob' && colOf(e.path)) want.set(e.path, e.sha);
+      const todo = Array.from(want).filter(([f, sha]) => !files.has(f) || files.get(f).sha !== sha);
+      let i = 0;
+      const worker = async () => {
+        while (i < todo.length) {
+          const [f, sha] = todo[i++];
+          const data = await blobData(sha);
+          files.set(f, { sha: sha, data: freeze(clone(data)) });
+        }
+      };
+      await Promise.all([worker(), worker(), worker(), worker(), worker()]);
+      for (const f of Array.from(files.keys())) if (!want.has(f)) files.delete(f);
+    }
+    function settleFirst(e) { const w = firstWaiters; firstWaiters = []; for (const x of w) e ? x.reject(e) : x.resolve(true); }
+    async function pollOnce() {
+      if (!cfg) return;
+      try {
+        await serial(async () => {
+          const r = await gh('GET', '/repos/' + cfg.repo + '/git/ref/heads/' + encodeURI(cfg.branch || 'main'), null, { etag: refTag });
+          if (r.status !== 304) {
+            refTag = r.etag || null;
+            const sha = r.json && r.json.object && r.json.object.sha;
+            if (sha && sha !== head) { await syncTo(sha); head = sha; saveCache(); }
+          }
+        });
+        loaded = true; fails = 0; notify(); settleFirst(null);
+      } catch (e) {
+        if (e && e.conflict && e.empty) { files.clear(); head = null; loaded = true; fails = 0; notify(); settleFirst(null); }
+        else { fails++; if (!loaded && !files.size) settleFirst(e); }
+        if (e && e.auth) return false;
+      }
+      return true;
+    }
+    let running = false, again = false;
+    async function loop() {
+      clearTimeout(timer);
+      if (running) { again = true; return; }
+      running = true;
+      let keepGoing = true;
+      try { keepGoing = await pollOnce(); } finally { running = false; }
+      if (keepGoing === false) return;
+      if (again) { again = false; timer = setTimeout(loop, 0); return; }
+      const visible = document.visibilityState !== 'hidden';
+      const baseMs = visible ? 5000 : 30000;
+      timer = setTimeout(loop, fails ? Math.min(60000, baseMs * Math.pow(2, Math.min(fails, 4))) : baseMs);
+    }
+    function start() {
+      if (started) return;
+      started = true;
+      setTimeout(notify, 0);
+      loop();
+      const kick = () => { fails = 0; loop(); };
+      document.addEventListener('visibilitychange', () => { if (document.visibilityState === 'visible') kick(); });
+      window.addEventListener('online', kick);
+      window.addEventListener('focus', kick);
+    }
+    async function refreshFile(f) {
+      try {
+        const r = await gh('GET', '/repos/' + cfg.repo + '/contents/' + f + '?ref=' + encodeURIComponent(cfg.branch || 'main'));
+        let data = {};
+        try { data = JSON.parse(fromB64(r.json && r.json.content)); } catch (e) { data = {}; }
+        files.set(f, { sha: r.json.sha, data: freeze(isO(data) ? data : {}) });
+      } catch (e) {
+        if (e && e.missing) files.delete(f); else throw e;
+      }
+    }
+    async function commitFile(f, out, sha, message) {
+      const body = { message: message, content: toB64(JSON.stringify(out, null, 1) + '\n'), branch: cfg.branch || 'main' };
+      if (sha) body.sha = sha;
+      const r = await gh('PUT', '/repos/' + cfg.repo + '/contents/' + f, body);
+      const nsha = r.json && r.json.content && r.json.content.sha;
+      if (nsha) { files.set(f, { sha: nsha, data: freeze(clone(out)) }); blobCache.set(nsha, clone(out)); }
+      // force a tree check on the next poll, so changes friends made just before this save are not missed
+      head = null;
+      refTag = null;
+    }
+    function write(op, p, data) {
+      if (op !== 'delete' && !isO(data)) return Promise.reject(err('invalid_argument'));
+      let loc;
+      try { loc = fileOf(p); } catch (e) { return Promise.reject(e); }
+      const my = ++seq;
+      let local;
+      if (op === 'set') local = freeze(clone(data));
+      else if (op === 'update') { const cur = docValue(p); local = cur ? freeze(mrg(cur, clone(data))) : undefined; }
+      else local = null;
+      if (local !== undefined) { pending.set(p, { data: local, seq: my }); notify(); }
+      const done = () => { if (pending.get(p) && pending.get(p).seq === my) pending.delete(p); notify(); };
+      return serial(async () => {
+        for (let attempt = 0; attempt < 6; attempt++) {
+          let f = files.get(loc.file);
+          if (op === 'update' && !(f && isO(f.data) && isO(f.data[loc.key]))) { await refreshFile(loc.file); f = files.get(loc.file); }
+          const content = f && isO(f.data) ? f.data : {};
+          const existing = content[loc.key];
+          let next;
+          if (op === 'set') next = clone(data);
+          else if (op === 'update') { if (!isO(existing)) throw err('invalid_argument'); next = mrg(existing, clone(data)); }
+          if (op === 'delete' && existing === undefined) return;
+          const out = Object.assign({}, content);
+          if (op === 'delete') delete out[loc.key]; else out[loc.key] = next;
+          try {
+            await commitFile(loc.file, out, f ? f.sha : null, 'هم‌قدم: ' + p);
+            saveCache();
+            return;
+          } catch (e) {
+            if (e && (e.conflict || (e.missing && f))) {
+              await refreshFile(loc.file);
+              await wait(120 + Math.random() * 380);
+              continue;
+            }
+            throw e;
+          }
+        }
+        throw err('unavailable');
+      }).then((v) => { done(); if (started && !running) { fails = 0; clearTimeout(timer); timer = setTimeout(loop, 1500); } return v; },
+               (e) => { done(); throw e; });
+    }
+    function docRef(p) {
+      checkPath(p, true);
+      return Object.freeze({
+        id: idOf(p), path: p,
+        get: () => serial(async () => { const loc = fileOf(p); await refreshFile(loc.file); return snapDoc(p, docValue(p) || null, false); }),
+        set: (d) => write('set', p, d),
+        update: (d) => write('update', p, d),
+        delete: () => write('delete', p),
+        collection: (sub) => colRef(p + '/' + sub)
+      });
+    }
+    function colRef(p) {
+      checkPath(p, false);
+      return Object.freeze({
+        path: p,
+        doc: (id) => docRef(p + '/' + (id === undefined ? Math.random().toString(36).slice(2, 14) : id)),
+        onSnapshot: (next, error) => {
+          const l = { path: p, next: next, error: error, key: null, dead: false };
+          listeners.add(l);
+          start();
+          setTimeout(() => deliver(l), 0);
+          return () => { l.dead = true; listeners.delete(l); };
+        }
+      });
+    }
+
+    async function checkAccess(c, wantWrite) {
+      let info;
+      try { info = await gh('GET', '/repos/' + c.repo, null, { token: c.token }); }
+      catch (e) {
+        if (e && e.auth) throw err('bad_token');
+        if (e && e.missing) throw err('no_repo');
+        throw e;
+      }
+      const j = info.json || {};
+      if (j.private !== true) throw err('public_repo');
+      const out = { repo: j.full_name || c.repo, token: c.token, branch: j.default_branch || c.branch || 'main' };
+      if (wantWrite) {
+        // make sure the token can write: create or keep a small marker file
+        let sha = null;
+        try {
+          const r = await gh('GET', '/repos/' + out.repo + '/contents/hamghadam.json?ref=' + encodeURIComponent(out.branch), null, { token: c.token });
+          sha = r.json && r.json.sha;
+        } catch (e) {
+          if (e && e.perm) throw err('no_write');
+          if (!(e && (e.missing || e.conflict))) throw e;
+        }
+        if (!sha) {
+          try {
+            await gh('PUT', '/repos/' + out.repo + '/contents/hamghadam.json', { message: 'هم‌قدم: راه‌اندازی گروه', content: toB64(JSON.stringify({ app: 'hamghadam', createdAt: new Date().toISOString() }) + '\n'), branch: out.branch }, { token: c.token });
+          } catch (e) {
+            if (e && (e.perm || e.missing)) throw err('no_write');
+            if (!(e && e.conflict)) throw e;
+          }
+        }
+      }
+      return out;
+    }
+    function go(withOwner) { location.replace(linkFor(withOwner)); }
+
+    return Object.freeze({
+      db: Object.freeze({ doc: docRef, collection: colRef }),
+      configured: () => !!cfg,
+      isOwner: () => owner,
+      online: () => online,
+      hasCache: () => files.size > 0,
+      repo: () => (cfg ? cfg.repo : ''),
+      guessRepo: () => { const m = location.hostname.match(/^([A-Za-z0-9-]+)\.github\.io$/i); return m ? m[1] + '/hamghadam-data' : ''; },
+      onAuthLost: (fn) => { authLostFn = fn; },
+      onOnline: (fn) => { onlineFn = fn; },
+      firstSync: () => new Promise((resolve, reject) => {
+        if (loaded) return resolve(true);
+        firstWaiters.push({ resolve: resolve, reject: reject });
+        if (!started) start(); else { fails = 0; loop(); }
+      }),
+      connect: async (repoText, tokenText) => {
+        const repo = String(repoText || '').trim().replace(/^https?:\/\/github\.com\//i, '').replace(/\.git$/i, '').replace(/\/+$/, '');
+        const token = String(tokenText || '').trim();
+        if (!REPO_RE.test(repo)) throw err('bad_repo');
+        if (!/^[A-Za-z0-9_]{20,255}$/.test(token)) throw err('bad_token');
+        const c = await checkAccess({ repo: repo, token: token, branch: 'main' }, true);
+        cfg = c;
+        owner = true;
+        ls.set('cfg', JSON.stringify(c));
+        ls.set('owner', '1');
+        ls.del('cache');
+        go(true);
+      },
+      joinLink: async (text) => {
+        const c = keyFromText(text);
+        if (!c) throw err('bad_link');
+        let ok;
+        try { ok = await checkAccess(c, false); }
+        catch (e) { if (e && (e.code === 'bad_token' || e.code === 'no_repo')) throw err('dead_link'); throw e; }
+        cfg = { repo: ok.repo, token: c.token, branch: ok.branch };
+        owner = false;
+        ls.set('cfg', JSON.stringify(cfg));
+        ls.del('owner');
+        ls.del('cache');
+        go(false);
+      },
+      inviteLink: () => linkFor(false),
+      ownLink: () => linkFor(true)
+    });
+  })();
+
+
+  /* ================= constants ================= */
+  const DAYS = ['شنبه', 'یکشنبه', 'دوشنبه', 'سه‌شنبه', 'چهارشنبه', 'پنجشنبه', 'جمعه'];
+  const DAYS_SHORT = ['ش', 'ی', 'د', 'س', 'چ', 'پ', 'ج'];
+  const MONTHS = ['فروردین', 'اردیبهشت', 'خرداد', 'تیر', 'مرداد', 'شهریور', 'مهر', 'آبان', 'آذر', 'دی', 'بهمن', 'اسفند'];
+  const COLORS = ['فیروزه‌ای', 'زعفرانی', 'اناری', 'لاجوردی', 'پسته‌ای', 'بادمجانی', 'حنایی', 'گلبهی'];
+  const MAX_GOALS = 5;
+  const SUCCESS = 0.8;
+  const TEMPLATES = [
+    { title: 'باشگاه', kind: 'days', target: 5 },
+    { title: 'مطالعه', kind: 'amount', target: 70, unit: 'صفحه' },
+    { title: 'دویدن', kind: 'amount', target: 15, unit: 'کیلومتر' },
+    { title: '۱۰ هزار قدم', kind: 'days', target: 5 },
+    { title: 'زبان', kind: 'amount', target: 120, unit: 'دقیقه' },
+    { title: 'خواب قبل از ۱۲', kind: 'days', target: 5 },
+    { title: 'بدون قند', kind: 'days', target: 6 },
+    { title: 'مدیتیشن', kind: 'amount', target: 70, unit: 'دقیقه' }
+  ];
+  const UNITS = ['صفحه', 'دقیقه', 'ساعت', 'کیلومتر', 'بار', 'لیوان'];
+  const NUDGES = ['پاشو بریم، هنوز وقت هست', 'منتظرتیم، کجایی؟', 'هفته داره تموم میشه‌ها', 'یه کم دیگه مونده، تمومش کن'];
+  const STAKES = ['نفر آخر شام همه رو مهمون می‌کنه', 'نفر آخر قهوه‌ی همه رو حساب می‌کنه', 'قهرمان هفته رستوران بعدی رو انتخاب می‌کنه', 'هر کی زیر ۷۰٪ بشه به صندوق گروه می‌ریزه'];
+  const KNOWN_CODES = new Set(['invalid_argument', 'resource_exhausted', 'quota_exceeded', 'unavailable', 'revoked', 'not_granted', 'capability_disabled', 'capability_removed', 'transform_error']);
+
+  const sv = (p, cls) => '<svg class="ic ' + (cls || '') + '" viewBox="0 0 24 24" aria-hidden="true">' + p + '</svg>';
+  const ICON = {
+    check: sv('<path d="M5 12.5l4.3 4.3L19 7.2"/>'),
+    plus: sv('<path d="M12 5v14M5 12h14"/>'),
+    minus: sv('<path d="M5 12h14"/>'),
+    x: sv('<path d="M6 6l12 12M18 6L6 18"/>'),
+    chevR: sv('<path d="M9 5l7 7-7 7"/>'),
+    chevL: sv('<path d="M15 5l-7 7 7 7"/>'),
+    chevD: sv('<path d="M6 9l6 6 6-6"/>'),
+    crown: sv('<path d="M3.5 8.5l4.2 3.6L12 5l4.3 7.1 4.2-3.6-1.6 9.5H5.1z"/>', 'ic-crown'),
+    flame: sv('<path d="M12 2.8c.7 3.3 5.2 5.2 5.2 10.1a5.2 5.2 0 0 1-10.4 0c0-2.4 1.2-4.1 2.6-5.3.1 1.7.8 2.8 2 3.4.5-2.8-.3-5.6.6-8.2z"/>', 'ic-flame'),
+    bell: sv('<path d="M6 16.5h12l-1.4-2V10a4.6 4.6 0 0 0-9.2 0v4.5z"/><path d="M10 19a2 2 0 0 0 4 0"/>'),
+    spark: sv('<path d="M12 3.5l1.9 5.2 5.4 1.8-5.4 1.9L12 17.6l-1.9-5.2-5.4-1.9 5.4-1.8z"/>', 'ic-fill'),
+    lock: sv('<rect x="5" y="10.5" width="14" height="9.5" rx="2"/><path d="M8 10.5V8a4 4 0 0 1 8 0v2.5"/>'),
+    edit: sv('<path d="M4.5 19.5l1-4.2L15.8 5a2 2 0 0 1 2.8 0l.4.4a2 2 0 0 1 0 2.8L8.7 18.5z"/>'),
+    flag: sv('<path d="M5 21V4.5M5 5h11l-2 3.5 2 3.5H5"/>'),
+    wifi: sv('<path d="M2.5 8.8a14 14 0 0 1 19 0M5.6 12.2a9.5 9.5 0 0 1 12.8 0M8.8 15.5a5 5 0 0 1 6.4 0M3 3l18 18"/><circle cx="12" cy="19" r="1.2" fill="currentColor" stroke="none"/>')
+  };
+
+  /* ================= small utils ================= */
+  const $ = (s) => document.querySelector(s);
+  const isObj = (v) => v !== null && typeof v === 'object' && !Array.isArray(v);
+  const num = (v) => { const n = Number(v); return isFinite(n) ? n : 0; };
+  const FA = '۰۱۲۳۴۵۶۷۸۹';
+  const fd = (x) => String(x).replace(/[0-9]/g, (d) => FA[+d]);
+  function fnum(n) {
+    n = num(n);
+    const r = Math.round(n * 10) / 10;
+    const a = Math.abs(r);
+    const i = Math.floor(a + 1e-9);
+    const dec = Math.round((a - i) * 10);
+    let s = String(i).replace(/\B(?=(\d{3})+(?!\d))/g, '٬');
+    if (dec > 0 && dec < 10) s += '٫' + dec;
+    return (r < 0 ? '−' : '') + fd(s);
+  }
+  function fplain(n) { // for inputs: no grouping
+    n = Math.round(num(n) * 10) / 10;
+    return fd(String(n).replace('.', '٫'));
+  }
+  function fpct(r) {
+    const v = Math.max(0, Math.min(1, num(r)));
+    return fd(Math.floor(v * 100 + 1e-7)) + '٪';
+  }
+  const pctW = (r) => (Math.max(0, Math.min(1, num(r))) * 100).toFixed(1) + '%';
+  function toLatin(s) {
+    return String(s == null ? '' : s)
+      .replace(/[۰-۹]/g, (c) => String(c.charCodeAt(0) - 0x06F0))
+      .replace(/[٠-٩]/g, (c) => String(c.charCodeAt(0) - 0x0660));
+  }
+  function parseAmount(s) {
+    let t = toLatin(s).replace(/[\s‌‏‎]/g, '');
+    if (!t) return NaN;
+    t = t.replace(/[٬،']/g, '');
+    if (/^\d{1,3}(,\d{3})+(\.\d+)?$/.test(t)) t = t.replace(/,/g, '');
+    t = t.replace(/[٫,\/]/g, '.');
+    if (!/^(\d+(\.\d+)?|\.\d+)$/.test(t)) return NaN;
+    const v = parseFloat(t);
+    return isFinite(v) ? v : NaN;
+  }
+  function clean(s, n) {
+    return String(s == null ? '' : s)
+      .replace(/[\u0000-\u001F\u007F‪-‮⁦-⁩]/g, '')
+      .replace(/\s+/g, ' ')
+      .trim()
+      .slice(0, n);
+  }
+  const ESC = { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' };
+  const esc = (s) => String(s == null ? '' : s).replace(/[&<>"']/g, (c) => ESC[c]);
+  function merge(a, b) {
+    const out = isObj(a) ? Object.assign({}, a) : {};
+    if (!isObj(b)) return out;
+    for (const k of Object.keys(b)) {
+      const bv = b[k];
+      if (isObj(bv)) out[k] = merge(isObj(out[k]) ? out[k] : {}, bv);
+      else out[k] = bv;
+    }
+    return out;
+  }
+  function newId() {
+    const A = 'abcdefghijklmnopqrstuvwxyz0123456789';
+    let s = '';
+    try {
+      const b = crypto.getRandomValues(new Uint8Array(14));
+      for (let i = 0; i < 14; i++) s += A[b[i] % 36];
+    } catch (e) {
+      for (let i = 0; i < 14; i++) s += A[Math.floor(Math.random() * 36)];
+    }
+    return s;
+  }
+  const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
+  const LS = {
+    get(k) { try { return window.localStorage.getItem('hq.' + k); } catch (e) { return null; } },
+    set(k, v) { try { window.localStorage.setItem('hq.' + k, String(v)); } catch (e) { /* storage blocked */ } },
+    del(k) { try { window.localStorage.removeItem('hq.' + k); } catch (e) { /* storage blocked */ } }
+  };
+
+  /* ================= dates (local time, weeks start Saturday) ================= */
+  const pad = (n) => (n < 10 ? '0' : '') + n;
+  const ymd = (dt) => dt.getFullYear() + '-' + pad(dt.getMonth() + 1) + '-' + pad(dt.getDate());
+  const isYmd = (s) => typeof s === 'string' && /^\d{4}-\d{2}-\d{2}$/.test(s);
+  function parseYmd(s) { const p = s.split('-'); return new Date(+p[0], +p[1] - 1, +p[2], 12, 0, 0, 0); }
+  function addDays(s, n) { const d = parseYmd(s); d.setDate(d.getDate() + n); return ymd(d); }
+  const dayIdx = (s) => (parseYmd(s).getDay() + 1) % 7;
+  const weekOf = (s) => addDays(s, -dayIdx(s));
+  const today = () => ymd(new Date());
+  const curWeek = () => weekOf(today());
+  const weekDiff = (a, b) => Math.round((parseYmd(b) - parseYmd(a)) / 6048e5);
+
+  /* Jalali conversion (jalaali-js algorithm) */
+  const idiv = (a, b) => ~~(a / b);
+  const imod = (a, b) => a - ~~(a / b) * b;
+  const BREAKS = [-61, 9, 38, 199, 426, 686, 756, 818, 1111, 1181, 1210, 1635, 2060, 2097, 2192, 2262, 2324, 2394, 2456, 3178];
+  function jalCal(jy, withoutLeap) {
+    const bl = BREAKS.length, gy = jy + 621;
+    let leapJ = -14, jp = BREAKS[0], jm, jump = 0, leap, n, i;
+    for (i = 1; i < bl; i += 1) {
+      jm = BREAKS[i]; jump = jm - jp;
+      if (jy < jm) break;
+      leapJ = leapJ + idiv(jump, 33) * 8 + idiv(imod(jump, 33), 4);
+      jp = jm;
+    }
+    n = jy - jp;
+    leapJ = leapJ + idiv(n, 33) * 8 + idiv(imod(n, 33) + 3, 4);
+    if (imod(jump, 33) === 4 && jump - n === 4) leapJ += 1;
+    const leapG = idiv(gy, 4) - idiv((idiv(gy, 100) + 1) * 3, 4) - 150;
+    const march = 20 + leapJ - leapG;
+    if (withoutLeap) return { gy: gy, march: march };
+    if (jump - n < 6) n = n - jump + idiv(jump + 4, 33) * 33;
+    leap = imod(imod(n + 1, 33) - 1, 4);
+    if (leap === -1) leap = 4;
+    return { leap: leap, gy: gy, march: march };
+  }
+  function g2d(gy, gm, gd) {
+    let d = idiv((gy + idiv(gm - 8, 6) + 100100) * 1461, 4) + idiv(153 * imod(gm + 9, 12) + 2, 5) + gd - 34840408;
+    d = d - idiv(idiv(gy + 100100 + idiv(gm - 8, 6), 100) * 3, 4) + 752;
+    return d;
+  }
+  function d2g(jdn) {
+    let j = 4 * jdn + 139361631;
+    j = j + idiv(idiv(4 * jdn + 183187720, 146097) * 3, 4) * 4 - 3908;
+    const i = idiv(imod(j, 1461), 4) * 5 + 308;
+    const gd = idiv(imod(i, 153), 5) + 1;
+    const gm = imod(idiv(i, 153), 12) + 1;
+    const gy = idiv(j, 1461) - 100100 + idiv(8 - gm, 6);
+    return { gy: gy, gm: gm, gd: gd };
+  }
+  function d2j(jdn) {
+    const gy = d2g(jdn).gy;
+    let jy = gy - 621;
+    const r = jalCal(jy, false);
+    const jdn1f = g2d(gy, 3, r.march);
+    let k = jdn - jdn1f;
+    if (k >= 0) {
+      if (k <= 185) return { jy: jy, jm: 1 + idiv(k, 31), jd: imod(k, 31) + 1 };
+      k -= 186;
+    } else {
+      jy -= 1; k += 179;
+      if (r.leap === 1) k += 1;
+    }
+    return { jy: jy, jm: 7 + idiv(k, 30), jd: imod(k, 30) + 1 };
+  }
+  function toJ(s) { const p = s.split('-').map(Number); return d2j(g2d(p[0], p[1], p[2])); }
+  function jDay(s) { const j = toJ(s); return fd(j.jd) + ' ' + MONTHS[j.jm - 1]; }
+  function weekRange(w, withYear) {
+    const a = toJ(w), b = toJ(addDays(w, 6));
+    let s = a.jm === b.jm
+      ? fd(a.jd) + ' تا ' + fd(b.jd) + ' ' + MONTHS[b.jm - 1]
+      : fd(a.jd) + ' ' + MONTHS[a.jm - 1] + ' تا ' + fd(b.jd) + ' ' + MONTHS[b.jm - 1];
+    if (withYear) s += ' ' + fd(b.jy);
+    return s;
+  }
+  function weekRel(w) {
+    const k = weekDiff(curWeek(), w);
+    if (k === 0) return 'این هفته';
+    if (k === -1) return 'هفته‌ی قبل';
+    if (k === 1) return 'هفته‌ی بعد';
+    return k < 0 ? fd(-k) + ' هفته پیش' : fd(k) + ' هفته بعد';
+  }
+  function relTime(t) {
+    const s = (Date.now() - t) / 1000;
+    if (s < 60) return 'همین الان';
+    if (s < 3600) return fd(Math.floor(s / 60)) + ' دقیقه پیش';
+    if (s < 86400) return fd(Math.floor(s / 3600)) + ' ساعت پیش';
+    const d = Math.floor(s / 86400);
+    if (d === 1) return 'دیروز';
+    if (d < 7) return fd(d) + ' روز پیش';
+    return jDay(ymd(new Date(t)));
+  }
+  function daysLeftText() {
+    const n = 7 - dayIdx(today());
+    return n <= 1 ? 'امروز روز آخر هفته‌ست' : fd(n) + ' روز تا آخر هفته';
+  }
+
+  /* ================= state ================= */
+  const S = {
+    phase: 'loading', db: null, user: null, uid: null, owner: false, canWrite: null, readOnly: false,
+    members: [], byId: {}, rawMembers: {}, plans: {}, social: {},
+    ready: { members: false, plans: false, social: false }, got: { members: false, plans: false, social: false },
+    meId: null, localMe: null, tab: 'me', week: null, expanded: new Set(), feedAll: false,
+    subErr: null, slow: false, today: null, unsubs: [], memo: new Map(), seenNudge: 0,
+    sheet: null, sheetOpener: null, joining: false,
+    gate: null, gateErr: '', setupErr: '', setupOpen: false, gateBusy: false, skipInstall: false
+  };
+
+  /* ================= normalizers (shared data is untrusted) ================= */
+  function hashColor(id) { let h = 0; for (let i = 0; i < id.length; i++) h = (h * 31 + id.charCodeAt(i)) >>> 0; return h % 8; }
+  function normMember(id, d) {
+    if (!isObj(d)) return null;
+    const c = d.color;
+    return {
+      id: id,
+      name: clean(d.name, 24) || 'بی‌نام',
+      color: Number.isInteger(c) && c >= 0 && c < 8 ? c : hashColor(id),
+      uid: typeof d.uid === 'string' && d.uid ? d.uid : null,
+      joinedAt: num(d.joinedAt)
+    };
+  }
+  function normGoal(g) {
+    if (!isObj(g)) return null;
+    if (typeof g.id !== 'string' || !/^[a-z0-9]{4,32}$/i.test(g.id)) return null;
+    const kind = g.kind === 'amount' ? 'amount' : 'days';
+    let target = num(g.target);
+    if (kind === 'days') target = Math.min(7, Math.max(1, Math.round(target || 1)));
+    else target = target > 0 ? Math.min(100000, Math.round(target * 10) / 10) : 1;
+    return {
+      id: g.id, kind: kind, target: target,
+      title: clean(g.title, 40) || 'هدف',
+      unit: kind === 'amount' ? (clean(g.unit, 14) || 'واحد') : 'روز'
+    };
+  }
+  const normCache = new WeakMap();
+  function normPlan(raw) {
+    if (!isObj(raw)) return null;
+    if (normCache.has(raw)) return normCache.get(raw);
+    const seen = new Set();
+    const goals = (Array.isArray(raw.goals) ? raw.goals : []).map(normGoal)
+      .filter((g) => g && !seen.has(g.id) && seen.add(g.id)).slice(0, 8);
+    const p = { goals: goals, log: isObj(raw.log) ? raw.log : {} };
+    normCache.set(raw, p);
+    return p;
+  }
+  function entryVal(log, gid, d) {
+    const g = isObj(log) ? log[gid] : null;
+    const e = isObj(g) ? g[d] : null;
+    if (!isObj(e)) return 0;
+    const v = num(e.v);
+    return v > 0 ? Math.min(v, 100000) : 0;
+  }
+  function entryTime(log, gid, d) {
+    const g = isObj(log) ? log[gid] : null;
+    const e = isObj(g) ? g[d] : null;
+    return isObj(e) ? num(e.t) : 0;
+  }
+  function goalProgress(g, log) {
+    let done = 0, sum = 0;
+    for (let d = 0; d < 7; d++) { const v = entryVal(log, g.id, d); if (v > 0) { done++; sum += v; } }
+    sum = Math.round(sum * 10) / 10;
+    const achieved = g.kind === 'days' ? done : sum;
+    const ratio = g.target > 0 ? Math.min(1, achieved / g.target) : 0;
+    return { done: done, sum: sum, achieved: achieved, ratio: ratio, full: achieved >= g.target - 1e-9 };
+  }
+  function planStats(plan) {
+    if (!plan || !plan.goals.length) return null;
+    const per = plan.goals.map((g) => goalProgress(g, plan.log));
+    const score = per.reduce((s, x) => s + x.ratio, 0) / per.length;
+    return { goals: plan.goals.length, score: score, full: per.filter((x) => x.full).length, per: per };
+  }
+  function normSocial(raw) {
+    const r = isObj(raw) ? raw : {};
+    const st = isObj(r.stake) ? r.stake : null;
+    const txt = st ? clean(st.text, 90) : '';
+    return {
+      stake: txt ? { text: txt, by: typeof st.by === 'string' ? st.by : '', t: num(st.t) } : null,
+      kudos: isObj(r.kudos) ? r.kudos : {},
+      nudges: isObj(r.nudges) ? r.nudges : {}
+    };
+  }
+  function kudosGivers(soc, key) {
+    const m = soc.kudos[key];
+    if (!isObj(m)) return [];
+    return Object.keys(m).filter((k) => num(m[k]) > 0 && S.byId[k]);
+  }
+  const plainGoal = (g) => ({ id: g.id, title: g.title, kind: g.kind, target: g.target, unit: g.kind === 'amount' ? g.unit : '' });
+
+  /* ================= writes: one at a time per document, coalesced, optimistic ================= */
+  const writers = new Map();
+  function effective(path, store) {
+    const w = writers.get(path);
+    if (!w) return store;
+    let d = store;
+    if (w.settled) d = merge(d || {}, w.settled);
+    if (w.inflight) d = merge(d || {}, w.inflight);
+    if (w.pending) d = merge(d || {}, w.pending);
+    return d;
+  }
+  function queuePatch(path, patch, base) {
+    if (S.readOnly || !S.db) { toast('الان امکان ثبت نیست.'); return false; }
+    let w = writers.get(path);
+    if (!w) { w = { path: path, pending: null, inflight: null, settled: null, busy: false, base: null, timer: 0 }; writers.set(path, w); }
+    w.pending = w.pending ? merge(w.pending, patch) : merge({}, patch);
+    if (base) w.base = base;
+    render();
+    flush(w);
+    return true;
+  }
+  function dropIfIdle(w) {
+    if (!w.pending && !w.inflight && !w.settled && !w.busy && writers.get(w.path) === w) writers.delete(w.path);
+  }
+  async function flush(w) {
+    if (w.busy || !w.pending) return;
+    w.busy = true;
+    const patch = w.pending;
+    w.pending = null;
+    w.inflight = patch;
+    let ok = false;
+    try {
+      await writeDoc(w.path, patch, w.base);
+      ok = true;
+    } catch (e) {
+      writeFailed(e);
+    }
+    w.inflight = null;
+    w.busy = false;
+    if (ok) {
+      w.settled = w.settled ? merge(w.settled, patch) : patch;
+      clearTimeout(w.timer);
+      if (contains(storeDoc(w.path), w.settled)) w.settled = null;
+      else w.timer = setTimeout(() => { w.settled = null; dropIfIdle(w); render(); }, 6000);
+    }
+    dropIfIdle(w);
+    render();
+    if (w.pending && !S.readOnly) flush(w);
+  }
+  function contains(doc, patch) {
+    if (!isObj(patch)) return true;
+    if (!isObj(doc)) return false;
+    for (const k of Object.keys(patch)) {
+      const pv = patch[k], dv = doc[k];
+      if (isObj(pv)) { if (!contains(dv, pv)) return false; }
+      else if (Array.isArray(pv)) { if (JSON.stringify(pv) !== JSON.stringify(dv)) return false; }
+      else if (pv !== dv) return false;
+    }
+    return true;
+  }
+  function storeDoc(path) {
+    const i = path.indexOf('/');
+    const col = path.slice(0, i), id = path.slice(i + 1);
+    if (col === 'plans') return S.plans[id] || null;
+    if (col === 'social') return S.social[id] || null;
+    if (col === 'members') return S.rawMembers[id] || null;
+    return null;
+  }
+  function clearSettled(prefix) {
+    for (const w of Array.from(writers.values())) {
+      if (w.settled && w.path.indexOf(prefix) === 0 && contains(storeDoc(w.path), w.settled)) { w.settled = null; clearTimeout(w.timer); dropIfIdle(w); }
+    }
+  }
+  async function retry(fn) {
+    try { return await fn(); }
+    catch (e) {
+      if (e && e.auth) throw e;
+      const c = e && e.code;
+      if (c === 'unavailable' || !KNOWN_CODES.has(c)) { await sleep(300 + Math.random() * 600); return fn(); }
+      throw e;
+    }
+  }
+  async function writeDoc(path, patch, base) {
+    const ref = S.db.doc(path);
+    try {
+      return await retry(() => ref.update(patch));
+    } catch (e) {
+      if (!e || e.code !== 'invalid_argument') throw e;
+      let snap = null;
+      try { snap = await ref.get(); } catch (e2) { throw e; }
+      if (snap && snap.exists) throw e;
+      return await retry(() => ref.set(merge(base || {}, patch)));
+    }
+  }
+  function writeFailed(e) {
+    if (e && e.auth) return;
+    const c = e && e.code;
+    if (c === 'invalid_argument' && S.canWrite !== true) {
+      setReadOnly();
+      toast('اجازه‌ی ثبت نداری. از سازنده‌ی صفحه بخواه با ایمیلت دعوتت کنه و دسترسی Can edit بده.', 6500);
+    } else if (c === 'revoked' || c === 'not_granted' || c === 'capability_disabled' || c === 'capability_removed') {
+      setReadOnly();
+      toast('دسترسی ذخیره قطع شد. صفحه رو ببند و دوباره باز کن.', 5000);
+    } else if (c === 'quota_exceeded') {
+      toast('فضای ذخیره‌ی این صفحه پر شده و این مورد ثبت نشد.', 5000);
+    } else if (c === 'resource_exhausted') {
+      toast('درخواست‌ها زیاد شد. چند ثانیه صبر کن و دوباره بزن.', 4000);
+    } else {
+      toast('ثبت نشد. اینترنت رو چک کن و دوباره بزن.', 4000);
+    }
+  }
+  function setReadOnly() {
+    S.readOnly = true;
+    for (const w of writers.values()) w.pending = null;
+    closeSheet(true);
+    render();
+  }
+
+  /* ================= data access ================= */
+  const planKey = (w, mid) => w + '_' + mid;
+  function getPlan(w, mid) {
+    const id = planKey(w, mid);
+    const raw = effective('plans/' + id, S.plans[id] || null);
+    return raw ? normPlan(raw) : null;
+  }
+  const getSocial = (w) => normSocial(effective('social/' + w, S.social[w] || null));
+  const nameOf = (mid) => (S.byId[mid] ? S.byId[mid].name : 'یه نفر');
+  const me = () => (S.meId ? S.byId[S.meId] || null : null);
+  const mvar = (m) => '--mc:var(--c' + m.color + ')';
+  function avatar(m, size) {
+    const ch = Array.from(m.name)[0] || '؟';
+    return '<span class="av" style="--s:' + size + 'px;' + mvar(m) + '" aria-hidden="true">' + esc(ch) + '</span>';
+  }
+  function minWeek() {
+    if (S.memo.has('min')) return S.memo.get('min');
+    let mn = curWeek();
+    for (const id in S.plans) {
+      const w = id.slice(0, 10), mid = id.slice(11);
+      if (isYmd(w) && S.byId[mid]) { const ww = weekOf(w); if (ww < mn) mn = ww; }
+    }
+    S.memo.set('min', mn);
+    return mn;
+  }
+  function standings(w) {
+    const key = 'st:' + w;
+    if (S.memo.has(key)) return S.memo.get(key);
+    const ranked = [], idle = [], score = {};
+    for (const m of S.members) {
+      const plan = getPlan(w, m.id);
+      const stats = planStats(plan);
+      const row = { m: m, plan: plan, stats: stats, rank: 0 };
+      if (stats) { ranked.push(row); score[m.id] = stats.score; } else idle.push(row);
+    }
+    ranked.sort((a, b) => b.stats.score - a.stats.score || b.stats.full - a.stats.full || a.m.joinedAt - b.m.joinedAt);
+    let prevK = null, rank = 0;
+    ranked.forEach((r, i) => { const k = Math.round(r.stats.score * 1000); if (k !== prevK) { rank = i + 1; prevK = k; } r.rank = rank; });
+    const avg = ranked.length ? ranked.reduce((s, r) => s + r.stats.score, 0) / ranked.length : null;
+    const top = ranked.length >= 2 && ranked[0].stats.score > 0 ? ranked.filter((r) => r.rank === 1) : [];
+    let last = [];
+    if (ranked.length >= 2) {
+      const lowK = Math.round(ranked[ranked.length - 1].stats.score * 1000);
+      const topK = Math.round(ranked[0].stats.score * 1000);
+      if (lowK !== topK) last = ranked.filter((r) => Math.round(r.stats.score * 1000) === lowK);
+    }
+    const res = { w: w, ranked: ranked, idle: idle, avg: avg, score: score, top: top, last: last };
+    S.memo.set(key, res);
+    return res;
+  }
+  function streakOf(mid) {
+    const cur = curWeek(), mn = minWeek();
+    let w = cur, n = 0;
+    const s0 = standings(cur).score[mid];
+    if (!(s0 >= SUCCESS - 1e-9)) w = addDays(cur, -7);
+    while (w >= mn) {
+      const s = standings(w).score[mid];
+      if (s >= SUCCESS - 1e-9) { n++; w = addDays(w, -7); } else break;
+    }
+    return n;
+  }
+  function paceOf(score) {
+    if (score >= 1 - 1e-9) return { k: 'done', t: 'همه رو تموم کرده' };
+    const expected = dayIdx(today()) / 7;
+    const diff = score - expected;
+    if (diff >= 0.1) return { k: 'ahead', t: 'جلوتر از برنامه', e: expected };
+    if (diff >= -0.1) return { k: 'on', t: 'طبق برنامه', e: expected };
+    return { k: 'behind', t: 'عقب از برنامه', e: expected };
+  }
+  const canEditGoals = (w) => !S.readOnly && !!me() && (w === curWeek() || w === addDays(curWeek(), 7));
+  const ticksWeek = (w) => w === curWeek() || w === addDays(curWeek(), -7);
+  const dayEditable = (w, d) => !S.readOnly && !!me() && ticksWeek(w) && addDays(w, d) <= today();
+  function findPrevGoals(mid, w) {
+    for (let i = 1; i <= 26; i++) {
+      const pw = addDays(w, -7 * i);
+      if (pw < minWeek()) break;
+      const p = getPlan(pw, mid);
+      if (p && p.goals.length) return { week: pw, goals: p.goals };
+    }
+    return null;
+  }
+  function kudosReceived(mid, w) {
+    const soc = getSocial(w);
+    const plan = getPlan(w, mid);
+    if (!plan) return 0;
+    let n = 0;
+    for (const key of Object.keys(soc.kudos)) {
+      const parts = key.split('_');
+      if (parts.length !== 3 || parts[0] !== mid) continue;
+      if (!plan.goals.some((g) => g.id === parts[1]) || entryVal(plan.log, parts[1], parts[2]) <= 0) continue;
+      n += kudosGivers(soc, key).filter((k) => k !== mid).length;
+    }
+    return n;
+  }
+
+  /* ================= rendering helpers ================= */
+  function ring(r, size, sw) {
+    const R = (size - sw) / 2, C = 2 * Math.PI * R, c = size / 2;
+    const v = Math.max(0, Math.min(1, num(r)));
+    const val = v > 0.001
+      ? '<circle class="ring-val" cx="' + c + '" cy="' + c + '" r="' + R + '" stroke-width="' + sw + '" stroke-dasharray="' + C.toFixed(2) + '" stroke-dashoffset="' + (C * (1 - v)).toFixed(2) + '" transform="rotate(-90 ' + c + ' ' + c + ')"/>'
+      : '';
+    return '<svg class="ring" viewBox="0 0 ' + size + ' ' + size + '" width="' + size + '" height="' + size + '" aria-hidden="true"><circle class="ring-track" cx="' + c + '" cy="' + c + '" r="' + R + '" stroke-width="' + sw + '"/>' + val + '</svg>';
+  }
+  function progressText(g, p) {
+    if (g.kind === 'days') return fd(p.done) + ' از ' + fd(g.target) + ' روز';
+    return fnum(p.sum) + ' از ' + fnum(g.target) + ' ' + esc(g.unit);
+  }
+  function goalHint(g, p, plan, w) {
+    const cur = curWeek();
+    if (p.full) return '<span class="ok">' + ICON.check + 'کامل شد</span>';
+    if (w > cur) return '';
+    if (w < cur) {
+      return g.kind === 'days'
+        ? '<span class="warn">' + fd(g.target - p.done) + ' روز کم بود</span>'
+        : '<span class="warn">' + fnum(g.target - p.sum) + ' ' + esc(g.unit) + ' کم بود</span>';
+    }
+    const td = dayIdx(today());
+    const left = 7 - td;
+    if (g.kind === 'days') {
+      const rem = g.target - p.done;
+      let open = 0;
+      for (let d = td; d < 7; d++) if (entryVal(plan.log, g.id, d) <= 0) open++;
+      if (open < rem) return '<span class="bad">دیگه به ' + fd(g.target) + ' نمی‌رسه؛ نهایتا ' + fd(p.done + open) + '</span>';
+      if (open === rem) return '<span class="warn">از امروز باید هر روز انجام بشه</span>';
+      return fd(rem) + ' روز دیگه مونده';
+    }
+    const rem = Math.round((g.target - p.sum) * 10) / 10;
+    if (left <= 1) return fnum(rem) + ' ' + esc(g.unit) + ' مونده، فقط امروز';
+    return fnum(rem) + ' ' + esc(g.unit) + ' مونده، روزی حدود ' + fnum(Math.ceil((rem / left) * 10) / 10);
+  }
+  function weekBarHTML() {
+    const w = S.week, cur = curWeek();
+    const canPrev = w > minWeek(), canNext = w < addDays(cur, 7);
+    let h = '<div class="weekbar">' +
+      '<button type="button" class="icon-btn" id="wk-prev" data-act="week" data-dir="-1" aria-label="هفته‌ی قبل"' + (canPrev ? '' : ' disabled') + '>' + ICON.chevR + '</button>' +
+      '<div class="weekbar-mid"><div class="weekbar-rel">' + weekRel(w) + '</div><div class="weekbar-range">' + weekRange(w, true) + '</div></div>' +
+      '<button type="button" class="icon-btn" id="wk-next" data-act="week" data-dir="1" aria-label="هفته‌ی بعد"' + (canNext ? '' : ' disabled') + '>' + ICON.chevL + '</button>' +
+      '</div>';
+    if (w !== cur) h += '<div class="weekbar-back"><button type="button" class="link-btn" id="wk-now" data-act="week-now">برگرد به این هفته</button></div>';
+    return h;
+  }
+  function readOnlyBanner() {
+    if (!S.readOnly) return '';
+    return '<div class="banner warn">' + ICON.lock + '<div class="banner-body"><b>فقط مشاهده</b><div>برای ثبت هدف و تیک، از سازنده‌ی صفحه بخواه با ایمیلت دعوتت کنه و دسترسی Can edit بده.</div></div></div>';
+  }
+  function lockNote(w) {
+    const cur = curWeek();
+    if (S.readOnly || !me()) return '';
+    if (w < addDays(cur, -7)) return '<p class="note">' + ICON.lock + 'این هفته بسته شده و فقط قابل دیدنه.</p>';
+    if (w === addDays(cur, -7)) return '<p class="note">' + ICON.lock + 'هفته‌ی قبل: هدف‌ها قفل شدن، ولی تیک‌های جامونده رو هنوز می‌تونی بزنی.</p>';
+    if (w === addDays(cur, 7)) return '<p class="note">هفته‌ی بعد: الان هدف‌ها رو بچین، تیک زدن از شنبه باز میشه.</p>';
+    return '';
+  }
+
+  /* ================= view: my week ================= */
+  function meHTML() {
+    const m = me();
+    const w = S.week, cur = curWeek();
+    const plan = getPlan(w, m.id);
+    const goals = plan ? plan.goals : [];
+    let h = netBanners() + weekBarHTML() + readOnlyBanner() + nudgeBannerHTML(m) + recapHTML(m);
+    if (!goals.length) {
+      h += emptyGoalsHTML(m, w);
+    } else {
+      const st = planStats(plan);
+      h += summaryHTML(m, st, w);
+      h += '<div class="goals">' + goals.map((g, i) => goalCardHTML(m, plan, g, st.per[i], w)).join('') + '</div>';
+      if (canEditGoals(w)) {
+        h += goals.length < MAX_GOALS
+          ? '<button type="button" class="add-goal" id="add-goal" data-act="goal-new">' + ICON.plus + '<span>هدف جدید</span><small>' + fd(goals.length) + ' از ' + fd(MAX_GOALS) + '</small></button>'
+          : '<p class="note">به سقف ' + fd(MAX_GOALS) + ' هدف رسیدی.</p>';
+      }
+    }
+    h += lockNote(w);
+    if (w === cur && goals.length) h += '<p class="note">هر روز روی خونه‌ی امروز بزن. هفته شنبه شروع میشه و جمعه بسته میشه.</p>';
+    if (NET && S.members.length <= 1) h += inviteHTML();
+    return h;
+  }
+  function summaryHTML(m, st, w) {
+    const cur = curWeek(), isCur = w === cur;
+    const sd = standings(w);
+    const row = sd.ranked.find((r) => r.m.id === m.id);
+    const chips = [];
+    if (isCur) {
+      const p = paceOf(st.score);
+      const cls = p.k === 'behind' ? 'bad' : p.k === 'on' ? 'acc' : 'good';
+      chips.push('<span class="chip ' + cls + '">' + p.t + '</span>');
+      chips.push('<span class="chip">' + daysLeftText() + '</span>');
+    } else if (w < cur) {
+      chips.push(st.score >= SUCCESS - 1e-9 ? '<span class="chip good">هفته‌ی موفق</span>' : '<span class="chip warn">زیر ۸۰٪</span>');
+    }
+    const streak = isCur ? streakOf(m.id) : 0;
+    if (streak > 0) chips.push('<span class="chip gold">' + ICON.flame + fd(streak) + ' هفته‌ی موفق پشت سر هم</span>');
+    if (row && sd.ranked.length > 1 && w <= cur) chips.push('<span class="chip">رتبه‌ی ' + fd(row.rank) + ' از ' + fd(sd.ranked.length) + '</span>');
+    const kud = w <= cur ? kudosReceived(m.id, w) : 0;
+    if (kud > 0) chips.push('<span class="chip gold">' + ICON.spark + fd(kud) + ' دمت گرم گرفتی</span>');
+    let title, line;
+    if (isCur) {
+      const t = today();
+      title = 'امروز ' + DAYS[dayIdx(t)] + '، ' + jDay(t);
+      line = fd(st.full) + ' از ' + fd(st.goals) + ' هدف کامل شده';
+    } else if (w < cur) {
+      title = 'نتیجه‌ی نهایی این هفته';
+      line = fd(st.full) + ' از ' + fd(st.goals) + ' هدف کامل شد';
+    } else {
+      title = 'برنامه‌ی هفته‌ی بعد';
+      line = fd(st.goals) + ' هدف چیدی؛ از شنبه شروع میشه';
+    }
+    let expect = '';
+    if (isCur) { const p = paceOf(st.score); if (p.e !== undefined && p.e > 0) expect = '<p class="muted">انتظار تا امروز حدود ' + fpct(p.e) + '</p>'; }
+    return '<section class="card summary" style="' + mvar(m) + '">' +
+      '<div class="ring-box">' + ring(st.score, 96, 11) + '<div class="ring-center">' + fpct(st.score) + '</div></div>' +
+      '<div class="summary-body"><h2 class="summary-title">' + title + '</h2><p class="summary-line">' + line + '</p>' +
+      (chips.length ? '<div class="chips">' + chips.join('') + '</div>' : '') + expect + '</div></section>';
+  }
+  function goalCardHTML(m, plan, g, p, w) {
+    const td = today();
+    let cells = '';
+    for (let d = 0; d < 7; d++) {
+      const date = addDays(w, d);
+      const v = entryVal(plan.log, g.id, d);
+      const isToday = date === td, future = date > td;
+      const can = dayEditable(w, d);
+      let cls = 'day';
+      if (v > 0) cls += g.kind === 'days' ? ' done' : ' part';
+      if (isToday) cls += ' today';
+      if (future) cls += ' future';
+      const state = v > 0 ? (g.kind === 'days' ? 'انجام شد' : fnum(v) + ' ' + g.unit) : (future ? 'هنوز نرسیده' : 'انجام نشده');
+      const inner = v > 0 ? (g.kind === 'days' ? ICON.check : '<span class="day-val">' + fnum(v) + '</span>') : '';
+      cells += '<button type="button" class="' + cls + '" id="d-' + g.id + '-' + d + '" data-act="day" data-gid="' + g.id + '" data-d="' + d + '"' +
+        (can ? '' : ' disabled') + ' aria-pressed="' + (v > 0) + '" aria-label="' + esc(g.title + '، ' + DAYS[d] + (isToday ? ' (امروز)' : '') + '، ' + state) + '">' +
+        '<span class="day-name">' + DAYS_SHORT[d] + '</span><span class="day-box">' + inner + '</span></button>';
+    }
+    const edit = canEditGoals(w) ? '<button type="button" class="icon-btn sm" id="ge-' + g.id + '" data-act="goal-edit" data-gid="' + g.id + '" aria-label="' + esc('ویرایش ' + g.title) + '">' + ICON.edit + '</button>' : '';
+    const hint = goalHint(g, p, plan, w);
+    return '<article class="goal' + (p.full ? ' complete' : '') + '" style="' + mvar(m) + '">' +
+      '<div class="goal-head"><div class="goal-titles"><h3 class="goal-title">' + esc(g.title) + '</h3>' +
+      '<div class="goal-meta"><span><b>' + progressText(g, p) + '</b></span>' + (hint ? '<span>' + hint + '</span>' : '') + '</div></div>' + edit + '</div>' +
+      '<div class="bar"><span style="width:' + pctW(p.ratio) + '"></span></div>' +
+      '<div class="days">' + cells + '</div></article>';
+  }
+  function emptyGoalsHTML(m, w) {
+    const cur = curWeek();
+    if (!canEditGoals(w)) {
+      return '<section class="card empty"><h2 class="h2">' + (w < cur ? 'این هفته هدفی ثبت نشده بود' : 'هنوز هدفی نیست') + '</h2>' +
+        (w < cur ? '<p>برای هفته‌های قبل نمیشه هدف اضافه کرد.</p>' : '') + '</section>';
+    }
+    const prev = findPrevGoals(m.id, w);
+    let h = '<section class="card empty"><h2 class="h2">' + (w === cur ? 'هدف‌های این هفته‌ت رو بنویس' : 'برای هفته‌ی بعد برنامه بریز') + '</h2>' +
+      '<p>هر کس هدف‌های خودش رو داره. ۳ تا ۵ هدف بذار، مثلا ۵ روز باشگاه یا ۷۰ صفحه کتاب.</p><div class="row">';
+    if (prev) h += '<button type="button" class="btn primary" id="copy-prev" data-act="copy-prev">تکرار هدف‌های ' + weekRel(prev.week) + ' (' + fd(Math.min(prev.goals.length, MAX_GOALS)) + ' هدف)</button>';
+    h += '<button type="button" class="btn' + (prev ? '' : ' primary') + '" id="goal-new" data-act="goal-new">' + ICON.plus + 'هدف جدید</button></div>';
+    h += '<div class="label">شروع سریع</div><div class="templates">' + TEMPLATES.map((t, i) =>
+      '<button type="button" class="tpl" id="tpl-' + i + '" data-act="tpl" data-i="' + i + '">' + esc(t.title) + '<small>' +
+      (t.kind === 'days' ? fd(t.target) + ' روز در هفته' : fnum(t.target) + ' ' + esc(t.unit) + ' در هفته') + '</small></button>').join('') + '</div></section>';
+    return h;
+  }
+  function nudgeBannerHTML(m) {
+    if (S.week !== curWeek()) return '';
+    const box = getSocial(curWeek()).nudges[m.id];
+    if (!isObj(box)) return '';
+    const seen = Math.max(num(LS.get('seen.' + m.id)), S.seenNudge);
+    const items = Object.keys(box).map((from) => ({ from: from, t: num(isObj(box[from]) ? box[from].t : 0), i: isObj(box[from]) ? box[from].m : 0 }))
+      .filter((x) => x.t > seen && S.byId[x.from] && x.from !== m.id).sort((a, b) => b.t - a.t);
+    if (!items.length) return '';
+    return '<div class="banner" id="nudge-banner">' + ICON.bell + '<div class="banner-body">' +
+      items.slice(0, 3).map((x) => '<div><b>' + esc(nameOf(x.from)) + '</b> سقلمه زد: ' + esc(NUDGES[x.i] || NUDGES[0]) + '</div>').join('') +
+      '<div class="banner-actions"><button type="button" class="link-btn" id="seen-nudges" data-act="seen-nudges" data-t="' + items[0].t + '">دیدم</button></div></div></div>';
+  }
+  function recapHTML(m) {
+    const cur = curWeek();
+    if (S.week !== cur || dayIdx(today()) > 1) return '';
+    const pw = addDays(cur, -7);
+    const st = standings(pw);
+    if (!st.ranked.length) return '';
+    const mine = st.ranked.find((r) => r.m.id === m.id);
+    let txt = '';
+    if (mine) txt += 'هفته‌ی قبل به <b>' + fpct(mine.stats.score) + '</b> رسیدی' + (st.ranked.length > 1 ? '، رتبه‌ی ' + fd(mine.rank) + ' از ' + fd(st.ranked.length) : '') + '.';
+    if (st.top.length) txt += ' قهرمان هفته: <b>' + st.top.map((r) => esc(r.m.name)).join(' و ') + '</b>.';
+    if (!txt) return '';
+    return '<div class="banner gold" id="recap">' + ICON.crown + '<div class="banner-body"><div>' + txt + '</div><div class="banner-actions">' +
+      '<button type="button" class="link-btn" id="recap-go" data-act="goto-week" data-w="' + pw + '" data-tab="race">دیدن کارنامه‌ی هفته‌ی قبل</button></div></div></div>';
+  }
+
+  /* ================= view: race ================= */
+  function raceHTML() {
+    const w = S.week;
+    let h = netBanners() + weekBarHTML() + readOnlyBanner();
+    if (NET && S.members.length <= 1) h += inviteHTML();
+    if (!S.members.length) return h + '<section class="card empty"><h2 class="h2">هنوز کسی عضو نشده</h2><p>اولین نفری که عضو بشه اینجا دیده میشه.</p></section>';
+    const st = standings(w);
+    h += ringsHTML(st, w) + stakeHTML(st, w) + boardHTML(st, w);
+    if (w <= curWeek() && st.ranked.length) h += mapHTML(st, w);
+    if (w <= curWeek()) h += feedHTML(w);
+    return h;
+  }
+  function ringsHTML(st, w) {
+    const cur = curWeek(), isCur = w === cur, past = w < cur;
+    const rows = st.ranked.concat(st.idle);
+    const items = rows.map((r) => {
+      const crown = st.top.some((t) => t.m.id === r.m.id) ? '<span class="ring-crown" title="صدرنشین">' + ICON.crown + '</span>' : '';
+      const sc = r.stats ? r.stats.score : 0;
+      return '<div class="ring-item' + (r.stats ? '' : ' idle') + '" style="' + mvar(r.m) + '">' + crown +
+        '<div class="ring-box">' + ring(sc, 70, 8) + '<div class="ring-center">' + (r.stats ? fpct(sc) : 'بی‌هدف') + '</div></div>' +
+        '<div class="ring-name">' + esc(r.m.name) + '</div>' +
+        (r.stats ? '<div class="ring-sub">' + fd(r.stats.full) + ' از ' + fd(r.stats.goals) + ' هدف</div>' : '') + '</div>';
+    }).join('');
+    let head = past ? 'نتیجه‌ی هفته' : isCur ? 'رقابت این هفته' : 'هفته‌ی بعد';
+    let line = st.avg != null ? 'میانگین گروه <b>' + fpct(st.avg) + '</b>' : 'هنوز کسی هدف نذاشته';
+    if (isCur) line += '، ' + daysLeftText();
+    let champ = '';
+    if (past && st.top.length) champ = '<div class="champ">' + ICON.crown + '<span>قهرمان هفته: <b>' + st.top.map((r) => esc(r.m.name)).join(' و ') + '</b> با ' + fpct(st.top[0].stats.score) + '</span></div>';
+    else if (isCur && st.top.length) champ = '<div class="champ">' + ICON.crown + '<span>فعلا صدرنشین: <b>' + st.top.map((r) => esc(r.m.name)).join(' و ') + '</b></span></div>';
+    return '<section class="card"><div class="h2-row"><h2 class="h2">' + head + '</h2><span class="team-line">' + line + '</span></div>' +
+      '<div class="rings">' + items + '</div>' + champ + '</section>';
+  }
+  function stakeHTML(st, w) {
+    const cur = curWeek();
+    const soc = getSocial(w);
+    const stake = soc.stake;
+    const editable = !S.readOnly && !!me() && (w === cur || w === addDays(cur, 7));
+    if (!stake && !editable) return '';
+    let h = '<section class="card stake"><div class="stake-head"><span class="stake-label">شرط این هفته</span>' +
+      (editable ? '<button type="button" class="link-btn" id="stake-edit" data-act="stake">' + (stake ? 'تغییر شرط' : 'گذاشتن شرط') + '</button>' : '') + '</div>';
+    if (stake) {
+      h += '<p class="stake-text">' + esc(stake.text) + '</p>' + (S.byId[stake.by] ? '<p class="stake-by">پیشنهاد ' + esc(nameOf(stake.by)) + '</p>' : '');
+      if (w < cur && st.ranked.length >= 2) {
+        let res = '';
+        if (st.top.length) res += '<div>قهرمان: <b>' + st.top.map((r) => esc(r.m.name)).join(' و ') + '</b> با ' + fpct(st.top[0].stats.score) + '</div>';
+        if (st.last.length) res += '<div>نفر آخر: <b>' + st.last.map((r) => esc(r.m.name)).join(' و ') + '</b> با ' + fpct(st.last[0].stats.score) + '</div>';
+        else res += '<div>همه مساوی شدن.</div>';
+        h += '<div class="stake-result">' + res + '</div>';
+      }
+    } else {
+      h += '<p class="stake-empty">یه شرط بذارید که هفته جدی‌تر بشه، مثلا نفر آخر شام میده.</p>';
+    }
+    return h + '</section>';
+  }
+  function boardHTML(st, w) {
+    const rows = st.ranked.concat(st.idle);
+    return '<section class="card board"><div class="h2-row"><h2 class="h2">جدول</h2><span class="muted">برای دیدن هدف‌های هر نفر روی اسمش بزن</span></div>' +
+      rows.map((r) => boardRow(r, st, w)).join('') + '</section>';
+  }
+  function boardRow(r, st, w) {
+    const m = r.m, s = r.stats, isMe = m.id === S.meId, open = S.expanded.has(m.id);
+    const cur = curWeek(), isCur = w === cur;
+    const crown = st.top.some((t) => t.m.id === m.id);
+    const subs = [];
+    if (s) subs.push(fd(s.full) + ' از ' + fd(s.goals) + ' هدف کامل');
+    else subs.push(w > cur ? 'هنوز برنامه نچیده' : 'هنوز هدف نذاشته');
+    if (s && isCur) { const p = paceOf(s.score); subs.push('<span class="pace-' + p.k + '">' + p.t + '</span>'); }
+    const streak = w <= cur ? streakOf(m.id) : 0;
+    if (streak > 0) subs.push('<span class="streak" title="هفته‌های موفق پشت سر هم">' + ICON.flame + fd(streak) + '</span>');
+    let h = '<article class="mrow' + (open ? ' open' : '') + '" style="' + mvar(m) + '">' +
+      '<button type="button" class="mrow-main" id="mr-' + m.id + '" data-act="expand" data-mid="' + m.id + '" aria-expanded="' + open + '">' +
+      '<span class="mrow-rank">' + (s ? (crown ? ICON.crown : fd(r.rank)) : '') + '</span>' + avatar(m, 38) +
+      '<span class="mrow-info"><span class="mrow-name">' + esc(m.name) + (isMe ? ' <small>(تو)</small>' : '') + '</span>' +
+      '<span class="mrow-sub">' + subs.map((x) => '<span>' + x + '</span>').join('') + '</span>' +
+      (s ? '<span class="bar"><span style="width:' + pctW(s.score) + '"></span></span>' : '') + '</span>' +
+      '<span class="mrow-pct">' + (s ? fpct(s.score) : '') + '</span><span class="mrow-chev">' + ICON.chevD + '</span></button>';
+    if (open) h += '<div class="mrow-detail">' + memberDetail(r, w) + '</div>';
+    return h + '</article>';
+  }
+  function memberDetail(r, w) {
+    const m = r.m, plan = r.plan, cur = curWeek(), td = today();
+    let h = '';
+    if (!plan || !plan.goals.length) {
+      h += '<p class="detail-empty">' + (w < cur ? 'این هفته هدفی نداشت.' : 'هنوز برای این هفته هدفی ننوشته.') + '</p>';
+    } else {
+      h += plan.goals.map((g, i) => {
+        const p = r.stats.per[i];
+        let cells = '';
+        for (let d = 0; d < 7; d++) {
+          const v = entryVal(plan.log, g.id, d);
+          const date = addDays(w, d);
+          let cls = 'mini-day';
+          if (v > 0) cls += g.kind === 'days' ? ' on' : ' part';
+          if (date === td) cls += ' today';
+          if (date > td) cls += ' future';
+          const txt = v > 0 && g.kind === 'amount' ? fnum(v) : DAYS_SHORT[d];
+          cells += '<span class="' + cls + '" title="' + esc(DAYS[d] + (v > 0 ? (g.kind === 'amount' ? '، ' + fnum(v) + ' ' + g.unit : '، انجام شد') : '')) + '">' + txt + '</span>';
+        }
+        return '<div class="mini-goal"><div class="mini-top"><span class="mini-title">' + esc(g.title) + '</span><span class="mini-val' + (p.full ? ' ok' : '') + '">' +
+          progressText(g, p) + '</span></div><div class="mini-days">' + cells + '</div></div>';
+      }).join('');
+    }
+    const acts = [];
+    if (m.id !== S.meId && w === cur && me() && !S.readOnly) {
+      const box = getSocial(cur).nudges[m.id];
+      const mine = isObj(box) && isObj(box[S.meId]) ? num(box[S.meId].t) : 0;
+      const nudgedToday = mine > 0 && ymd(new Date(mine)) === td;
+      acts.push(nudgedToday
+        ? '<button type="button" class="btn sm" disabled>' + ICON.bell + 'امروز سقلمه زدی</button>'
+        : '<button type="button" class="btn sm" id="nudge-' + m.id + '" data-act="nudge" data-mid="' + m.id + '">' + ICON.bell + 'سقلمه به ' + esc(m.name) + '</button>');
+    }
+    if (m.id === S.meId) acts.push('<button type="button" class="link-btn" data-act="tab" data-tab="me">رفتن به هفته‌ی من</button>');
+    if (acts.length) h += '<div class="detail-actions">' + acts.join('') + '</div>';
+    return h;
+  }
+  function mapHTML(st, w) {
+    const td = today();
+    let head = '<div class="wmap-row"><span></span>';
+    for (let d = 0; d < 7; d++) head += '<span class="wmap-day' + (addDays(w, d) === td ? ' today' : '') + '">' + DAYS_SHORT[d] + '</span>';
+    head += '</div>';
+    const rows = st.ranked.map((r) => {
+      const n = r.plan.goals.length;
+      let cells = '';
+      for (let d = 0; d < 7; d++) {
+        const date = addDays(w, d);
+        if (date > td) { cells += '<span class="wmap-cell future" aria-hidden="true"></span>'; continue; }
+        let c = 0;
+        for (const g of r.plan.goals) if (entryVal(r.plan.log, g.id, d) > 0) c++;
+        const f = n ? c / n : 0;
+        cells += '<span class="wmap-cell" title="' + esc(r.m.name + '، ' + DAYS[d] + ': ' + fd(c) + ' از ' + fd(n) + ' هدف') + '">' +
+          (c ? '<i style="opacity:' + (0.28 + 0.72 * f).toFixed(2) + '"></i>' : '') + '</span>';
+      }
+      return '<div class="wmap-row" style="' + mvar(r.m) + '"><span class="wmap-name">' + esc(r.m.name) + '</span>' + cells + '</div>';
+    }).join('');
+    return '<section class="card"><div class="h2-row"><h2 class="h2">نقشه‌ی هفته</h2><span class="muted">هر خونه یعنی اون روز چند تا از هدف‌ها انجام شده</span></div>' +
+      '<div class="wmap-grid" role="img" aria-label="نقشه‌ی فعالیت روزانه‌ی هر نفر">' + head + rows + '</div>' +
+      '<div class="wmap-legend"><span>کم‌رنگ: بخشی از هدف‌ها</span><span class="sw" style="opacity:.35"></span><span class="sw"></span><span>پررنگ: همه</span></div></section>';
+  }
+  function feedItems(w) {
+    const items = [];
+    for (const m of S.members) {
+      const plan = getPlan(w, m.id);
+      if (!plan) continue;
+      for (const g of plan.goals) {
+        for (let d = 0; d < 7; d++) {
+          const v = entryVal(plan.log, g.id, d);
+          if (v > 0) items.push({ type: 'tick', m: m, g: g, d: d, v: v, t: entryTime(plan.log, g.id, d), key: m.id + '_' + g.id + '_' + d });
+        }
+      }
+    }
+    const nud = getSocial(w).nudges;
+    for (const to of Object.keys(nud)) {
+      const box = nud[to];
+      if (!isObj(box) || !S.byId[to]) continue;
+      for (const from of Object.keys(box)) {
+        const x = box[from];
+        if (!isObj(x) || !S.byId[from] || from === to) continue;
+        const t = num(x.t);
+        if (t > 0) items.push({ type: 'nudge', from: S.byId[from], to: S.byId[to], t: t, i: x.m });
+      }
+    }
+    items.sort((a, b) => b.t - a.t || (a.key || '').localeCompare(b.key || ''));
+    return items;
+  }
+  function feedHTML(w) {
+    const items = feedItems(w);
+    const soc = getSocial(w);
+    const shown = S.feedAll ? items : items.slice(0, 8);
+    const canGive = !!me() && !S.readOnly;
+    const list = shown.map((it) => {
+      if (it.type === 'nudge') {
+        return '<div class="fitem" style="' + mvar(it.from) + '">' + avatar(it.from, 34) + '<div class="fbody"><div class="fline"><b>' + esc(it.from.name) + '</b> به <b>' +
+          esc(it.to.name) + '</b> سقلمه زد</div><div class="fmeta">' + esc(NUDGES[it.i] || NUDGES[0]) + '، ' + relTime(it.t) + '</div></div></div>';
+      }
+      const givers = kudosGivers(soc, it.key);
+      const mineGiven = givers.indexOf(S.meId) >= 0;
+      const what = it.g.kind === 'days' ? esc(it.g.title) + ' رو انجام داد' : fnum(it.v) + ' ' + esc(it.g.unit) + ' ' + esc(it.g.title) + ' ثبت کرد';
+      let btn;
+      if (it.m.id === S.meId || !canGive) {
+        btn = givers.length ? '<span class="kudos-count">' + fd(givers.length) + ' دمت گرم</span>' : '';
+      } else {
+        btn = '<button type="button" class="kudos' + (mineGiven ? ' on' : '') + '" id="k-' + it.key + '" data-act="kudos" data-key="' + it.key + '" data-to="' + it.m.id +
+          '" aria-pressed="' + mineGiven + '">' + ICON.spark + 'دمت گرم' + (givers.length ? '<span class="kc">' + fd(givers.length) + '</span>' : '') + '</button>';
+      }
+      const giverTxt = givers.length ? '، <span class="gold">' + givers.map((id) => esc(nameOf(id))).join('، ') + '</span>' : '';
+      return '<div class="fitem" style="' + mvar(it.m) + '">' + avatar(it.m, 34) + '<div class="fbody"><div class="fline"><b>' + esc(it.m.name) + '</b> ' + what +
+        '</div><div class="fmeta">' + DAYS[it.d] + (it.t ? '، ' + relTime(it.t) : '') + giverTxt + '</div></div>' + btn + '</div>';
+    }).join('');
+    let more = '';
+    if (items.length > 8) more = '<div class="feed-more"><button type="button" class="link-btn" id="feed-more" data-act="feed-more">' + (S.feedAll ? 'نمایش کمتر' : 'همه‌ی ' + fd(items.length) + ' مورد') + '</button></div>';
+    return '<section class="card"><div class="h2-row"><h2 class="h2">تازه‌ها</h2><span class="muted">به کار بقیه دمت گرم بده</span></div>' +
+      (items.length ? '<div class="feed-list">' + list + '</div>' + more : '<p class="muted">هنوز کسی این هفته چیزی ثبت نکرده.</p>') + '</section>';
+  }
+
+  /* ================= view: trend ================= */
+  function trendWeeks() {
+    const cur = curWeek(), out = [];
+    for (let w = minWeek(); w <= cur; w = addDays(w, 7)) out.push(w);
+    return out;
+  }
+  function trendHTML() {
+    const weeks = trendWeeks();
+    return netBanners() + readOnlyBanner() + chartHTML(weeks) + fameHTML(weeks) + archiveHTML(weeks);
+  }
+  function chartHTML(weeks) {
+    const withData = weeks.filter((w) => standings(w).ranked.length);
+    const W8 = withData.slice(-8);
+    if (!W8.length) {
+      return '<section class="card"><h2 class="h2">روند هفته‌ها</h2><p class="muted" style="margin-top:6px">وقتی هدف‌ها و تیک‌ها ثبت بشن، اینجا درصد هر نفر رو هفته به هفته کنار هم می‌بینی.</p></section>';
+    }
+    const vw = $('#view') ? $('#view').clientWidth : 0;
+    const width = Math.round(Math.max(250, Math.min(574, (vw || 390) - 66)));
+    const height = 230, x0 = 18, x1 = width - 48, y0 = 16, y1 = height - 36;
+    const n = W8.length;
+    const X = (i) => (n === 1 ? (x0 + x1) / 2 : x1 - (i * (x1 - x0)) / (n - 1));
+    const Y = (v) => y0 + (1 - Math.max(0, Math.min(1, v))) * (y1 - y0);
+    let g = '';
+    for (const v of [0, 0.5, 1]) {
+      g += '<line class="ch-grid" x1="' + x0 + '" x2="' + x1 + '" y1="' + Y(v).toFixed(1) + '" y2="' + Y(v).toFixed(1) + '"/>' +
+        '<text class="ch-label" x="' + (width - 4) + '" y="' + (Y(v) + 4).toFixed(1) + '" text-anchor="start" direction="rtl">' + fpct(v) + '</text>';
+    }
+    g += '<line class="ch-goal" x1="' + x0 + '" x2="' + x1 + '" y1="' + Y(SUCCESS).toFixed(1) + '" y2="' + Y(SUCCESS).toFixed(1) + '"/>' +
+      '<text class="ch-label gold" x="' + (width - 4) + '" y="' + (Y(SUCCESS) + 4).toFixed(1) + '" text-anchor="start" direction="rtl">' + fpct(SUCCESS) + '</text>';
+    const spacing = n > 1 ? (x1 - x0) / (n - 1) : 999;
+    const every = Math.max(1, Math.ceil(52 / spacing));
+    W8.forEach((w, i) => {
+      if ((n - 1 - i) % every !== 0) return;
+      g += '<text class="ch-label" x="' + X(i).toFixed(1) + '" y="' + (height - 12) + '" text-anchor="middle" direction="rtl">' + jDay(w) + '</text>';
+    });
+    if (n > 1) g += '<polyline class="ch-team" points="' + W8.map((w, i) => X(i).toFixed(1) + ',' + Y(standings(w).avg || 0).toFixed(1)).join(' ') + '"/>';
+    const shownMembers = [];
+    for (const m of S.members) {
+      const pts = W8.map((w, i) => { const s = standings(w).score[m.id]; return s == null ? null : [X(i), Y(s)]; });
+      if (!pts.some(Boolean)) continue;
+      shownMembers.push(m);
+      let seg = [], lines = '';
+      const flushSeg = () => { if (seg.length > 1) lines += '<polyline points="' + seg.map((p) => p[0].toFixed(1) + ',' + p[1].toFixed(1)).join(' ') + '"/>'; seg = []; };
+      for (const p of pts) { if (p) seg.push(p); else flushSeg(); }
+      flushSeg();
+      const dots = pts.map((p, i) => (p ? '<circle cx="' + p[0].toFixed(1) + '" cy="' + p[1].toFixed(1) + '" r="' + (i === n - 1 ? 5 : 3.5) + '"/>' : '')).join('');
+      g += '<g class="ch-m" style="' + mvar(m) + '">' + lines + dots + '</g>';
+    }
+    const legend = '<div class="legend">' + shownMembers.map((m) => '<span class="legend-item" style="' + mvar(m) + '"><i class="legend-dot"></i>' + esc(m.name) + '</span>').join('') +
+      (n > 1 ? '<span class="legend-item"><i class="legend-dash"></i>میانگین گروه</span>' : '') + '</div>';
+    return '<section class="card"><div class="h2-row"><h2 class="h2">روند هفته‌ها</h2><span class="muted">درصد پیشرفت هر نفر، جدیدترین هفته سمت چپ</span></div>' +
+      '<div class="chart-wrap"><svg class="chart" viewBox="0 0 ' + width + ' ' + height + '" width="' + width + '" height="' + height + '" role="img" aria-label="نمودار درصد پیشرفت هر نفر در هفته‌های اخیر">' + g + '</svg></div>' +
+      legend + (n === 1 ? '<p class="muted" style="margin-top:8px">از هفته‌ی دوم خط روند کشیده میشه.</p>' : '') + '</section>';
+  }
+  function fameStats(weeks) {
+    const cur = curWeek(), out = {};
+    for (const m of S.members) out[m.id] = { wins: 0, weeks: 0, sum: 0, succ: 0, best: 0, run: 0 };
+    for (const w of weeks) {
+      const st = standings(w), done = w < cur;
+      for (const m of S.members) {
+        const o = out[m.id], s = st.score[m.id];
+        if (done) {
+          if (s != null) {
+            o.weeks++; o.sum += s;
+            if (s >= SUCCESS - 1e-9) { o.succ++; o.run++; o.best = Math.max(o.best, o.run); } else o.run = 0;
+          } else o.run = 0;
+        } else if (s != null && s >= SUCCESS - 1e-9) {
+          o.best = Math.max(o.best, o.run + 1);
+        }
+      }
+      if (done) for (const r of st.top) out[r.m.id].wins++;
+    }
+    return out;
+  }
+  function fameHTML(weeks) {
+    const cur = curWeek();
+    const fs = fameStats(weeks);
+    const completed = weeks.filter((w) => w < cur && standings(w).ranked.length).length;
+    if (!completed) {
+      return '<section class="card"><h2 class="h2">تالار افتخار</h2><p class="muted" style="margin-top:6px">بعد از اولین جمعه، تعداد قهرمانی‌ها، میانگین و رکورد هر نفر اینجا جمع میشه.</p></section>';
+    }
+    const list = S.members.filter((m) => fs[m.id].weeks > 0)
+      .sort((a, b) => fs[b.id].wins - fs[a.id].wins || (fs[b.id].sum / fs[b.id].weeks) - (fs[a.id].sum / fs[a.id].weeks));
+    const rows = list.map((m) => {
+      const o = fs[m.id];
+      return '<div class="fame-row" style="' + mvar(m) + '">' + avatar(m, 36) + '<div class="fame-main"><div class="fame-name">' + esc(m.name) + '</div>' +
+        '<div class="fame-stats"><span>میانگین <b>' + fpct(o.sum / o.weeks) + '</b></span><span><b>' + fd(o.succ) + '</b> از ' + fd(o.weeks) + ' هفته موفق</span>' +
+        '<span>رکورد زنجیره <b>' + fd(o.best) + '</b> هفته</span></div></div>' +
+        '<span class="fame-wins" title="تعداد قهرمانی">' + ICON.crown + fd(o.wins) + '</span></div>';
+    }).join('');
+    return '<section class="card"><div class="h2-row"><h2 class="h2">تالار افتخار</h2><span class="muted">هفته‌ی موفق یعنی ۸۰٪ یا بیشتر</span></div>' + rows + '</section>';
+  }
+  function archiveHTML(weeks) {
+    const cur = curWeek();
+    const rows = [];
+    for (let i = weeks.length - 1; i >= 0 && rows.length < 26; i--) {
+      const w = weeks[i], st = standings(w);
+      if (!st.ranked.length) continue;
+      const champ = w < cur ? (st.top.length ? ICON.crown + '<span>' + st.top.map((r) => esc(r.m.name)).join(' و ') + '</span>' : '<span>بدون قهرمان</span>') : '<span>در جریان</span>';
+      rows.push('<button type="button" class="arch-row" data-act="goto-week" data-w="' + w + '" data-tab="race"><span class="arch-week">' + weekRange(w, false) +
+        '<small>' + weekRel(w) + '، ' + fd(st.ranked.length) + ' نفر</small></span><span class="arch-champ">' + champ + '</span><span class="arch-avg">' + fpct(st.avg) + '</span></button>');
+    }
+    if (!rows.length) return '';
+    return '<section class="card"><div class="h2-row"><h2 class="h2">کارنامه‌ی هفته‌ها</h2><span class="muted">میانگین گروه در هر هفته</span></div>' + rows.join('') + '</section>';
+  }
+
+  /* ================= view: onboarding & states ================= */
+  function swatchesHTML(name, sel, selfId) {
+    const used = new Set(S.members.filter((m) => m.id !== selfId).map((m) => m.color));
+    return '<div class="swatches" role="radiogroup" aria-label="رنگ">' + COLORS.map((c, i) =>
+      '<label class="swatch' + (i === sel ? ' sel' : '') + '" style="--mc:var(--c' + i + ')"><input type="radio" id="' + name + '-' + i + '" name="' + name + '" value="' + i + '"' +
+      (i === sel ? ' checked' : '') + '><span class="swatch-dot"></span><span class="swatch-name">' + c + (used.has(i) ? '<small>گرفته‌شده</small>' : '') + '</span></label>').join('') + '</div>';
+  }
+  function syncSwatches(scope) {
+    if (!scope) return;
+    scope.querySelectorAll('.swatch').forEach((lab) => { const inp = lab.querySelector('input'); lab.classList.toggle('sel', !!(inp && inp.checked)); });
+  }
+  function firstFreeColor() {
+    const used = new Set(S.members.map((m) => m.color));
+    for (let i = 0; i < 8; i++) if (!used.has(i)) return i;
+    return S.members.length % 8;
+  }
+  function onboardHTML() {
+    const claim = S.members.filter((m) => !m.uid);
+    let h = '<section class="onboard"><h1 class="display">به هم‌قدم خوش اومدی</h1>' +
+      '<p class="lead">جایی برای اینکه با دوستات هر هفته جلو برید. هر کس هدف‌های خودش رو داره و همه پیشرفت همدیگه رو می‌بینن.</p>' +
+      '<ol class="steps"><li><span class="n">۱</span><span><b>شنبه</b> ۳ تا ۵ هدف برای هفته‌ت بذار</span></li>' +
+      '<li><span class="n">۲</span><span><b>هر روز</b> کارهایی که کردی رو تیک بزن</span></li>' +
+      '<li><span class="n">۳</span><span><b>جمعه</b> نتیجه‌ی رقابت معلوم میشه</span></li></ol>';
+    if (S.members.length) {
+      h += '<div class="already"><span class="label">الان توی گروه</span><div class="avatars">' +
+        S.members.map((m) => '<span class="who" style="' + mvar(m) + '">' + avatar(m, 26) + esc(m.name) + '</span>').join('') + '</div></div>';
+    }
+    h += '<form class="card join" id="join-form" data-form="join" novalidate><h2 class="h2">ورود به گروه</h2>' +
+      '<div class="field"><label for="j-name">اسمت</label><input id="j-name" class="input" maxlength="24" placeholder="همونی که دوستات می‌بینن" autocomplete="nickname"></div>' +
+      '<div class="field"><span class="label">رنگت</span>' + swatchesHTML('j-color', firstFreeColor(), null) + '</div>' +
+      '<p class="form-err" id="j-err" role="alert"></p>' +
+      '<button type="submit" class="btn primary block" id="j-submit"' + (S.joining ? ' disabled' : '') + '>بزن بریم</button></form>';
+    if (claim.length) {
+      h += '<div class="card claim"><h2 class="h2">قبلا عضو شدی؟</h2><p class="muted">اگه از یه دستگاه دیگه عضو شدی، خودت رو انتخاب کن.</p><div class="claim-list">' +
+        claim.map((m) => '<button type="button" class="claim-btn" id="claim-' + m.id + '" data-act="claim" data-mid="' + m.id + '" style="' + mvar(m) + '">' + avatar(m, 30) + '<span>من ' + esc(m.name) + ' هستم</span></button>').join('') +
+        '</div></div>';
+    }
+    return h + '</section>';
+  }
+  function loadingHTML(msg) {
+    return '<section class="state-card"><div class="spinner" aria-hidden="true"></div><h2>در حال باز کردن گروه</h2><p>' +
+      (msg || 'هدف‌های هفته‌ی هر نفر، تیک‌های روزانه و جدول رقابت اینجا نشون داده میشه.') + '</p>' +
+      (S.slow ? '<button type="button" class="btn" id="retry-slow" data-act="retry">دوباره امتحان کن</button>' : '') + '</section>';
+  }
+  function noDbHTML() {
+    return '<section class="state-card"><h2>اینجا ذخیره‌سازی در دسترس نیست</h2>' +
+      '<p>هم‌قدم اطلاعات گروه رو داخل Claude نگه می‌داره. این صفحه رو از لینک اصلیش داخل claude.ai باز کن و وارد حسابت شو.</p>' +
+      '<p>اگه لینک رو از دوستت گرفتی، ازش بخواه با ایمیلت دعوتت کنه و دسترسی Can edit بده.</p></section>';
+  }
+  function subErrHTML() {
+    if (S.subErr === 'revoked') return '<section class="state-card"><h2>دسترسی عوض شده</h2><p>صفحه رو ببند و دوباره باز کن.</p></section>';
+    return '<section class="state-card"><h2>اتصال برقرار نشد</h2><p>اطلاعات گروه بارگذاری نشد. یه بار دیگه امتحان کن.</p>' +
+      '<button type="button" class="btn primary" id="retry" data-act="retry">تلاش دوباره</button></section>';
+  }
+
+  /* ================= render loop ================= */
+  let renderQueued = false;
+  function render() {
+    if (renderQueued) return;
+    renderQueued = true;
+    setTimeout(() => {
+      renderQueued = false;
+      try { draw(); }
+      catch (e) {
+        try { console.error(e); } catch (e2) { /* ignore */ }
+        setView('<section class="state-card"><h2>یه مشکل پیش اومد</h2><p>صفحه رو یه بار ببند و دوباره باز کن.</p></section>');
+      }
+    }, 0);
+  }
+  function setView(html) {
+    const v = $('#view');
+    if (!v || v.__html === html) return;
+    const keep = {};
+    v.querySelectorAll('input[id], textarea[id]').forEach((el) => { keep[el.id] = el.type === 'radio' || el.type === 'checkbox' ? el.checked : el.value; });
+    const active = document.activeElement;
+    const fid = active && active.id && v.contains(active) ? active.id : null;
+    v.innerHTML = html;
+    v.__html = html;
+    for (const id in keep) {
+      const el = document.getElementById(id);
+      if (!el || !v.contains(el)) continue;
+      if (el.type === 'radio' || el.type === 'checkbox') el.checked = keep[id]; else el.value = keep[id];
+    }
+    v.querySelectorAll('.swatches').forEach(syncSwatches);
+    if (fid) { const el = document.getElementById(fid); if (el && v.contains(el)) { try { el.focus({ preventScroll: true }); } catch (e) { /* ignore */ } } }
+  }
+  const allReady = () => S.ready.members && S.ready.plans && S.ready.social;
+  function updateChrome(showTabs) {
+    const chip = $('#me-chip');
+    const m = me();
+    if (m && showTabs) {
+      const html = avatar(m, 28) + '<span class="me-name">' + esc(m.name) + '</span>';
+      if (chip.__html !== html) { chip.innerHTML = html; chip.__html = html; }
+      chip.setAttribute('aria-label', 'پروفایل من: ' + m.name);
+      chip.hidden = false;
+    } else chip.hidden = true;
+    $('#tabs-band').hidden = !showTabs;
+    const meTab = $('#tab-me');
+    meTab.hidden = !m;
+    for (const t of ['me', 'race', 'trend']) $('#tab-' + t).setAttribute('aria-selected', String(S.tab === t));
+    $('.tabs').style.gridTemplateColumns = m ? '' : 'repeat(2,minmax(0,1fr))';
+  }
+  function draw() {
+    S.memo = new Map();
+    S.today = today();
+    rebuildMembers();
+    resolveMe();
+    if (S.phase === 'loading') { updateChrome(false); return setView(loadingHTML()); }
+    if (S.phase === 'nodb') { updateChrome(false); return setView(noDbHTML()); }
+    if (S.phase === 'gate') { updateChrome(false); return setView(gateHTML()); }
+    if (S.subErr) { updateChrome(false); return setView(subErrHTML()); }
+    if (!allReady()) { updateChrome(false); return setView(loadingHTML()); }
+    if (!me() && !S.readOnly) { updateChrome(false); return setView(installNeeded() ? installHTML() : onboardHTML()); }
+    if (!me() && S.tab === 'me') S.tab = 'race';
+    const cur = curWeek();
+    if (S.week < minWeek()) S.week = minWeek();
+    if (S.week > addDays(cur, 7)) S.week = addDays(cur, 7);
+    updateChrome(true);
+    if (S.tab === 'me') setView(meHTML());
+    else if (S.tab === 'race') setView(raceHTML());
+    else setView(trendHTML());
+  }
+
+  /* ================= sheets ================= */
+  function openSheet(html, focusSel, state) {
+    closeSheet(true);
+    S.sheet = state || null;
+    const rootEl = $('#sheet-root');
+    S.sheetOpener = document.activeElement;
+    rootEl.innerHTML = '<div class="sheet-back"><div class="sheet" role="dialog" aria-modal="true" aria-labelledby="sheet-title">' + html + '</div></div>';
+    root.classList.add('locked');
+    rootEl.querySelectorAll('.swatches').forEach(syncSwatches);
+    const f = focusSel ? rootEl.querySelector(focusSel) : rootEl.querySelector('.sheet-head .icon-btn');
+    if (f) setTimeout(() => { try { f.focus({ preventScroll: true }); } catch (e) { /* ignore */ } }, 40);
+  }
+  function closeSheet(silent) {
+    const rootEl = $('#sheet-root');
+    if (!rootEl || !rootEl.firstChild) { S.sheet = null; return; }
+    rootEl.innerHTML = '';
+    root.classList.remove('locked');
+    S.sheet = null;
+    if (!silent && S.sheetOpener && document.contains(S.sheetOpener)) { try { S.sheetOpener.focus({ preventScroll: true }); } catch (e) { /* ignore */ } }
+  }
+  const sheetHead = (title) => '<div class="sheet-head"><h2 id="sheet-title">' + esc(title) + '</h2><button type="button" class="icon-btn" id="sheet-x" data-act="sheet-close" aria-label="بستن">' + ICON.x + '</button></div>';
+  function setErr(id, msg) { const el = document.getElementById(id); if (el) el.textContent = msg || ''; }
+  const val = (id) => { const el = document.getElementById(id); return el ? el.value : ''; };
+
+  function goalSheet(gid, tpl) {
+    const m = me(), w = S.week;
+    if (!m || !canEditGoals(w)) return;
+    const plan = getPlan(w, m.id);
+    const goals = plan ? plan.goals : [];
+    const g = gid ? goals.find((x) => x.id === gid) : null;
+    if (gid && !g) return;
+    if (!g && goals.length >= MAX_GOALS) { toast('حداکثر ' + fd(MAX_GOALS) + ' هدف می‌تونی داشته باشی.'); return; }
+    const v = g || tpl || { title: '', kind: 'days', target: 5, unit: 'صفحه' };
+    const st = { type: 'goal', gid: g ? g.id : null, w: w, kind: v.kind, days: v.kind === 'days' ? v.target : 5 };
+    const amountTarget = v.kind === 'amount' ? v.target : 70;
+    let dp = '';
+    for (let i = 1; i <= 7; i++) dp += '<button type="button" class="dp" id="dp-' + i + '" data-act="g-days" data-n="' + i + '" aria-pressed="' + (st.days === i) + '">' + fd(i) + '</button>';
+    openSheet('<form class="sheet-form" id="goal-form" data-form="goal" novalidate>' + sheetHead(g ? 'ویرایش هدف' : 'هدف جدید') +
+      '<div class="field"><label for="g-title">اسم هدف</label><input id="g-title" class="input" maxlength="40" value="' + esc(v.title) + '" placeholder="مثلا باشگاه یا کتاب" autocomplete="off"></div>' +
+      '<div class="field"><span class="label">نوع هدف</span><div class="seg" role="radiogroup" aria-label="نوع هدف">' +
+      '<button type="button" class="seg-btn" role="radio" id="gk-days" data-act="g-kind" data-kind="days" aria-checked="' + (v.kind === 'days') + '">چند روز در هفته</button>' +
+      '<button type="button" class="seg-btn" role="radio" id="gk-amount" data-act="g-kind" data-kind="amount" aria-checked="' + (v.kind === 'amount') + '">مقدار در هفته</button></div>' +
+      '<p class="hint" id="g-kind-hint">' + (v.kind === 'days' ? 'هر روز فقط تیک می‌زنی؛ مثلا ۵ روز باشگاه.' : 'هر روز مقدارش رو می‌نویسی؛ مثلا ۲۰ صفحه از ۷۰ صفحه.') + '</p></div>' +
+      '<div class="field" id="g-days-field"' + (v.kind === 'days' ? '' : ' hidden') + '><span class="label">چند روز در هفته؟</span><div class="daypick">' + dp + '</div></div>' +
+      '<div id="g-amount-fields"' + (v.kind === 'amount' ? '' : ' hidden') + ' style="display:flex;flex-direction:column;gap:16px">' +
+      '<div class="field"><label for="g-target">مقدار کل هفته</label><div class="stepper">' +
+      '<button type="button" class="icon-btn" id="g-plus" data-act="g-step" data-step="1" aria-label="بیشتر">' + ICON.plus + '</button>' +
+      '<input id="g-target" class="input num" inputmode="decimal" value="' + fplain(amountTarget) + '" autocomplete="off">' +
+      '<button type="button" class="icon-btn" id="g-minus" data-act="g-step" data-step="-1" aria-label="کمتر">' + ICON.minus + '</button></div></div>' +
+      '<div class="field"><label for="g-unit">واحد</label><input id="g-unit" class="input" maxlength="14" value="' + esc(v.kind === 'amount' ? v.unit : 'صفحه') + '" autocomplete="off">' +
+      '<div class="chips-row">' + UNITS.map((u) => '<button type="button" class="chip-btn" data-act="g-unit" data-u="' + esc(u) + '">' + esc(u) + '</button>').join('') + '</div></div></div>' +
+      '<p class="form-err" id="g-err" role="alert"></p>' +
+      '<div class="sheet-actions"><button type="submit" class="btn primary" id="g-save">' + (g ? 'ذخیره' : 'اضافه کن') + '</button>' +
+      (g ? '<button type="button" class="btn danger" id="g-delete" data-act="g-delete">حذف هدف</button>' : '') + '</div></form>', g || tpl ? '#sheet-x' : '#g-title', st);
+  }
+  function setGoalKind(kind) {
+    if (!S.sheet || S.sheet.type !== 'goal') return;
+    S.sheet.kind = kind;
+    document.getElementById('gk-days').setAttribute('aria-checked', String(kind === 'days'));
+    document.getElementById('gk-amount').setAttribute('aria-checked', String(kind === 'amount'));
+    document.getElementById('g-days-field').hidden = kind !== 'days';
+    document.getElementById('g-amount-fields').hidden = kind !== 'amount';
+    document.getElementById('g-kind-hint').textContent = kind === 'days' ? 'هر روز فقط تیک می‌زنی؛ مثلا ۵ روز باشگاه.' : 'هر روز مقدارش رو می‌نویسی؛ مثلا ۲۰ صفحه از ۷۰ صفحه.';
+    setErr('g-err', '');
+  }
+  function amountStep(t) { return t < 20 ? 1 : t < 100 ? 5 : t < 1000 ? 10 : 100; }
+  function submitGoal() {
+    const sh = S.sheet, m = me();
+    if (!sh || sh.type !== 'goal' || !m) return;
+    const w = sh.w;
+    if (!canEditGoals(w)) { closeSheet(); return; }
+    const title = clean(val('g-title'), 40);
+    if (!title) { setErr('g-err', 'یه اسم برای هدف بنویس.'); return; }
+    let target, unit = '';
+    if (sh.kind === 'days') {
+      target = sh.days;
+      if (!(target >= 1 && target <= 7)) { setErr('g-err', 'تعداد روز رو انتخاب کن.'); return; }
+    } else {
+      target = parseAmount(val('g-target'));
+      if (!(target > 0)) { setErr('g-err', 'مقدار هفته باید یه عدد بزرگتر از صفر باشه.'); return; }
+      if (target > 100000) { setErr('g-err', 'این عدد خیلی بزرگه؛ حداکثر ۱۰۰٬۰۰۰.'); return; }
+      target = Math.round(target * 10) / 10;
+      if (!(target > 0)) { setErr('g-err', 'مقدار هفته باید یه عدد بزرگتر از صفر باشه.'); return; }
+      unit = clean(val('g-unit'), 14) || 'واحد';
+    }
+    const plan = getPlan(w, m.id);
+    const goals = plan ? plan.goals.map(plainGoal) : [];
+    if (sh.gid) {
+      const i = goals.findIndex((x) => x.id === sh.gid);
+      if (i < 0) { closeSheet(); return; }
+      goals[i] = { id: sh.gid, title: title, kind: sh.kind, target: target, unit: unit };
+    } else {
+      if (goals.length >= MAX_GOALS) { setErr('g-err', 'حداکثر ' + fd(MAX_GOALS) + ' هدف می‌تونی داشته باشی.'); return; }
+      goals.push({ id: newId(), title: title, kind: sh.kind, target: target, unit: unit });
+    }
+    const wasEdit = !!sh.gid;
+    closeSheet();
+    if (queuePatch('plans/' + planKey(w, m.id), { goals: goals }, { week: w, mid: m.id, goals: [], log: {} })) {
+      toast(wasEdit ? 'هدف ذخیره شد' : 'هدف اضافه شد');
+    }
+  }
+  function deleteGoal(btn) {
+    const sh = S.sheet, m = me();
+    if (!sh || !sh.gid || !m) return;
+    if (!btn.classList.contains('armed')) {
+      btn.classList.add('armed');
+      btn.textContent = 'برای حذف دوباره بزن';
+      setTimeout(() => { if (document.contains(btn)) { btn.classList.remove('armed'); btn.textContent = 'حذف هدف'; } }, 4000);
+      return;
+    }
+    const plan = getPlan(sh.w, m.id);
+    if (!plan) { closeSheet(); return; }
+    const goals = plan.goals.filter((x) => x.id !== sh.gid).map(plainGoal);
+    const w = sh.w;
+    closeSheet();
+    if (queuePatch('plans/' + planKey(w, m.id), { goals: goals }, { week: w, mid: m.id, goals: [], log: {} })) toast('هدف حذف شد');
+  }
+  function stepsFor(t) {
+    if (t <= 14) return [1, 2, 5];
+    if (t <= 70) return [5, 10, 20];
+    if (t <= 300) return [10, 20, 50];
+    if (t <= 2000) return [50, 100, 200];
+    return [100, 500, 1000];
+  }
+  function amountSheet(gid, d) {
+    const m = me(), w = S.week;
+    if (!m || !dayEditable(w, d)) return;
+    const plan = getPlan(w, m.id);
+    const g = plan ? plan.goals.find((x) => x.id === gid) : null;
+    if (!g) return;
+    const curV = entryVal(plan.log, gid, d);
+    const p = goalProgress(g, plan.log);
+    const st = { type: 'amount', gid: gid, d: d, w: w, step: stepsFor(g.target)[0] };
+    openSheet('<form class="sheet-form" id="amt-form" data-form="amount" novalidate>' + sheetHead(g.title) +
+      '<p class="sheet-sub">' + DAYS[d] + ' ' + jDay(addDays(w, d)) + '، این هفته ' + progressText(g, p) + '</p>' +
+      '<div class="field"><label for="amt">مقدار ' + DAYS[d] + '</label><div class="stepper">' +
+      '<button type="button" class="icon-btn" id="amt-plus" data-act="amt-step" data-step="1" aria-label="بیشتر">' + ICON.plus + '</button>' +
+      '<input id="amt" class="input num" inputmode="decimal" value="' + (curV ? fplain(curV) : '') + '" placeholder="۰" autocomplete="off">' +
+      '<button type="button" class="icon-btn" id="amt-minus" data-act="amt-step" data-step="-1" aria-label="کمتر">' + ICON.minus + '</button>' +
+      '<span class="stepper-unit">' + esc(g.unit) + '</span></div></div>' +
+      '<div class="chips-row">' + stepsFor(g.target).map((s) => '<button type="button" class="chip-btn" id="amt-add-' + s + '" data-act="amt-add" data-v="' + s + '">+' + fnum(s) + '</button>').join('') + '</div>' +
+      '<p class="form-err" id="amt-err" role="alert"></p>' +
+      '<div class="sheet-actions"><button type="submit" class="btn primary" id="amt-save">ثبت</button>' +
+      (curV ? '<button type="button" class="btn" id="amt-clear" data-act="amt-clear">پاک کردن</button>' : '') + '</div></form>', '#amt', st);
+  }
+  function writeEntry(w, gid, d, v) {
+    const m = me();
+    if (!m) return;
+    const plan = getPlan(w, m.id);
+    if (!plan) return;
+    const g = plan.goals.find((x) => x.id === gid);
+    const before = g ? goalProgress(g, plan.log) : null;
+    const beforeStats = planStats(plan);
+    const ok = queuePatch('plans/' + planKey(w, m.id), { log: { [gid]: { [d]: { v: v, t: Date.now() } } } }, { week: w, mid: m.id, goals: plan.goals.map(plainGoal), log: {} });
+    if (!ok || !g) return;
+    const after = getPlan(w, m.id);
+    const ap = goalProgress(g, after.log);
+    const as = planStats(after);
+    if (as && beforeStats && as.score >= 1 - 1e-9 && beforeStats.score < 1 - 1e-9) toast('همه‌ی هدف‌های این هفته کامل شد. ایول!', 3200);
+    else if (ap.full && before && !before.full) toast(g.title + ' کامل شد. دمت گرم!', 2600);
+  }
+  function submitAmount(clear) {
+    const sh = S.sheet;
+    if (!sh || sh.type !== 'amount') return;
+    let v = 0;
+    if (!clear) {
+      const raw = val('amt');
+      if (toLatin(raw).trim() === '') v = 0;
+      else {
+        v = parseAmount(raw);
+        if (!(v >= 0)) { setErr('amt-err', 'یه عدد درست بنویس، مثلا ۲۰.'); return; }
+        if (v > 100000) { setErr('amt-err', 'این عدد خیلی بزرگه.'); return; }
+        v = Math.round(v * 10) / 10;
+      }
+    }
+    if (!dayEditable(sh.w, sh.d)) { closeSheet(); return; }
+    closeSheet();
+    const m = me();
+    const plan = m ? getPlan(sh.w, m.id) : null;
+    if (plan && entryVal(plan.log, sh.gid, sh.d) === v) return;
+    writeEntry(sh.w, sh.gid, sh.d, v);
+  }
+  function profileSheet() {
+    const m = me();
+    if (!m) return;
+    let admin = '';
+    if (S.owner) {
+      const others = S.members.filter((x) => x.id !== m.id);
+      if (others.length) {
+        admin = '<div class="sheet-foot"><span class="label">مدیریت اعضا (فقط سازنده)</span>' + others.map((x) =>
+          '<div class="admin-row" style="' + mvar(x) + '">' + avatar(x, 30) + '<span class="nm">' + esc(x.name) + '</span>' +
+          '<button type="button" class="btn sm danger" id="rm-' + x.id + '" data-act="rm-member" data-mid="' + x.id + '">حذف از گروه</button></div>').join('') + '</div>';
+      }
+    }
+    openSheet('<form class="sheet-form" id="prof-form" data-form="profile" novalidate>' + sheetHead('پروفایل من') +
+      '<div class="field"><label for="p-name">اسم</label><input id="p-name" class="input" maxlength="24" value="' + esc(m.name) + '" autocomplete="nickname"></div>' +
+      '<div class="field"><span class="label">رنگ</span>' + swatchesHTML('p-color', m.color, m.id) + '</div>' +
+      '<p class="form-err" id="p-err" role="alert"></p>' +
+      '<div class="sheet-actions"><button type="submit" class="btn primary" id="p-save"' + (S.readOnly ? ' disabled' : '') + '>ذخیره</button></div>' +
+      (NET && NET.configured() ? '<div class="sheet-foot"><span class="label">دعوت دوستان</span><p class="muted">لینک دعوت رو فقط برای اعضای گروه بفرست.</p>' +
+        '<div class="row"><button type="button" class="btn sm primary" id="p-inv-share" data-act="invite-share">فرستادن لینک دعوت</button><button type="button" class="btn sm" id="p-inv-copy" data-act="invite-copy">کپی لینک</button></div>' +
+        (NET.isOwner() ? '<p class="muted">برای باز کردن اپ روی گوشی‌های خودت، این لینک رو کپی کن و برای خودت بفرست. برای کسی دیگه نفرستش.</p><div class="row"><button type="button" class="btn sm" id="p-own-copy" data-act="own-copy">کپی لینک مخصوص خودم</button></div>' : '') +
+        '</div>' : '') +
+      (!S.uid ? '<div class="sheet-foot"><button type="button" class="link-btn" id="switch-user" data-act="switch-user">من یه نفر دیگه‌ام</button></div>' : '') +
+      admin + '</form>', '#sheet-x', { type: 'profile' });
+  }
+  function checkedColor(name, fallback) {
+    const el = document.querySelector('input[name="' + name + '"]:checked');
+    const c = el ? parseInt(el.value, 10) : fallback;
+    return Number.isInteger(c) && c >= 0 && c < 8 ? c : 0;
+  }
+  function submitProfile() {
+    const m = me();
+    if (!m) return;
+    const name = clean(val('p-name'), 24);
+    if (!name) { setErr('p-err', 'اسمت رو بنویس.'); return; }
+    if (S.members.some((x) => x.id !== m.id && x.name === name)) { setErr('p-err', 'این اسم رو یه نفر دیگه داره.'); return; }
+    const color = checkedColor('p-color', m.color);
+    closeSheet();
+    if (name !== m.name || color !== m.color) {
+      if (queuePatch('members/' + m.id, { name: name, color: color }, { name: name, color: color, uid: m.uid, joinedAt: m.joinedAt || Date.now() })) toast('پروفایل ذخیره شد');
+    }
+  }
+  async function removeMember(btn) {
+    const mid = btn.dataset.mid;
+    if (!S.owner || !S.byId[mid] || mid === S.meId) return;
+    if (!btn.classList.contains('armed')) {
+      btn.classList.add('armed');
+      btn.textContent = 'مطمئنی؟ دوباره بزن';
+      setTimeout(() => { if (document.contains(btn)) { btn.classList.remove('armed'); btn.textContent = 'حذف از گروه'; } }, 4000);
+      return;
+    }
+    btn.disabled = true;
+    const nm = nameOf(mid);
+    try {
+      await retry(() => S.db.doc('members/' + mid).delete());
+      const row = btn.closest('.admin-row');
+      if (row) row.remove();
+      toast(nm + ' از گروه حذف شد');
+    } catch (e) {
+      btn.disabled = false;
+      writeFailed(e);
+    }
+  }
+  function stakeSheet() {
+    const w = S.week, cur = curWeek();
+    if (!me() || S.readOnly || !(w === cur || w === addDays(cur, 7))) return;
+    const st = getSocial(w).stake;
+    openSheet('<form class="sheet-form" id="stake-form" data-form="stake" novalidate>' + sheetHead('شرط ' + (w === cur ? 'این هفته' : 'هفته‌ی بعد')) +
+      '<p class="sheet-sub">همه می‌بینن و آخر هفته معلوم میشه قهرمان و نفر آخر کیه.</p>' +
+      '<div class="field"><label for="s-text">شرط</label><textarea id="s-text" class="input" maxlength="90" rows="2" placeholder="مثلا نفر آخر شام میده">' + esc(st ? st.text : '') + '</textarea></div>' +
+      '<div class="chips-col">' + STAKES.map((s, i) => '<button type="button" class="chip-btn wide" id="sp-' + i + '" data-act="stake-pick" data-i="' + i + '">' + esc(s) + '</button>').join('') + '</div>' +
+      '<p class="form-err" id="s-err" role="alert"></p>' +
+      '<div class="sheet-actions"><button type="submit" class="btn primary" id="s-save">ذخیره</button>' +
+      (st ? '<button type="button" class="btn danger" id="s-clear" data-act="stake-clear">برداشتن شرط</button>' : '') + '</div></form>', '#s-text', { type: 'stake', w: w });
+  }
+  function submitStake(clear) {
+    const sh = S.sheet, m = me();
+    if (!sh || sh.type !== 'stake' || !m) return;
+    const text = clear ? '' : clean(val('s-text'), 90);
+    if (!clear && !text) { setErr('s-err', 'متن شرط رو بنویس یا یکی از پیشنهادها رو انتخاب کن.'); return; }
+    const w = sh.w;
+    closeSheet();
+    if (queuePatch('social/' + w, { stake: { text: text, by: m.id, t: Date.now() } }, { week: w })) toast(clear ? 'شرط برداشته شد' : 'شرط ثبت شد');
+  }
+  function nudgeSheet(mid) {
+    const target = S.byId[mid];
+    if (!target || !me() || S.readOnly) return;
+    openSheet('<div class="sheet-form">' + sheetHead('سقلمه به ' + target.name) +
+      '<p class="sheet-sub">یه پیام کوتاه براش می‌ره و دفعه‌ی بعد که بیاد بالای صفحه‌ش می‌بینه.</p>' +
+      '<div class="chips-col">' + NUDGES.map((t, i) => '<button type="button" class="chip-btn wide" id="ns-' + i + '" data-act="nudge-send" data-i="' + i + '">' + esc(t) + '</button>').join('') + '</div></div>', '#sheet-x', { type: 'nudge', mid: mid });
+  }
+  function sendNudge(i) {
+    const sh = S.sheet, m = me();
+    if (!sh || sh.type !== 'nudge' || !m) return;
+    const to = sh.mid, w = curWeek();
+    closeSheet();
+    if (queuePatch('social/' + w, { nudges: { [to]: { [m.id]: { t: Date.now(), m: i } } } }, { week: w })) toast('سقلمه برای ' + nameOf(to) + ' رفت');
+  }
+
+  /* ================= standalone screens ================= */
+  const isIOS = () => /iPhone|iPad|iPod/.test(navigator.userAgent) || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
+  const isAndroid = () => /Android/i.test(navigator.userAgent);
+  function isInstalled() {
+    try {
+      if (window.navigator.standalone === true) return true;
+      if (window.matchMedia && window.matchMedia('(display-mode: standalone)').matches) return true;
+    } catch (e) { /* ignore */ }
+    return false;
+  }
+  const installNeeded = () => !!NET && !isInstalled() && !S.skipInstall && LS.get('skip-install') !== '1' && (isIOS() || isAndroid());
+  function installHTML() {
+    const ios = isIOS();
+    const steps = ios
+      ? ['پایین Safari دکمه‌ی <b>اشتراک‌گذاری</b> رو بزن. اگه نمی‌بینیش، اول دکمه‌ی سه‌نقطه رو بزن.', 'گزینه‌ی <b>Add to Home Screen</b> رو بزن و بعد <b>Add</b>.', 'از روی آیکون هم‌قدم توی صفحه‌ی اصلی بازش کن و اسمت رو بنویس.']
+      : ['منوی سه‌نقطه‌ی مرورگر رو باز کن.', 'گزینه‌ی <b>Install app</b> یا <b>Add to Home screen</b> رو بزن.', 'از روی آیکون هم‌قدم بازش کن و اسمت رو بنویس.'];
+    return '<section class="onboard" id="install"><h1 class="display">اول نصبش کن</h1>' +
+      '<p class="lead">هم‌قدم مثل یه اپ روی صفحه‌ی اصلی گوشیت میشینه و از اونجا باز میشه. سه قدم ساده:</p>' +
+      '<ol class="steps">' + steps.map((x, i) => '<li><span class="n">' + fd(i + 1) + '</span><span>' + x + '</span></li>').join('') + '</ol>' +
+      (ios ? '<p class="muted">اگه لینک رو توی تلگرام یا یه اپ دیگه باز کردی، اول لینک رو کپی کن و توی Safari بازش کن.</p>' : '') +
+      '<div class="row"><button type="button" class="btn" id="copy-link" data-act="copy-link">کپی لینک</button>' +
+      '<button type="button" class="link-btn" id="skip-install" data-act="skip-install">فعلا بدون نصب ادامه بده</button></div></section>';
+  }
+  const GATE_MSG = {
+    bad_link: 'این لینک دعوت نیست. کل لینکی که برات فرستادن رو کپی کن و اینجا بذار.',
+    dead_link: 'این لینک دیگه کار نمی‌کنه. از سازنده‌ی گروه یه لینک جدید بگیر.',
+    bad_repo: 'اسم مخزن رو به شکل username/hamghadam-data بنویس.',
+    bad_token: 'این توکن درست نیست یا منقضی شده. یه توکن جدید بساز و دوباره بذار.',
+    no_repo: 'این مخزن پیدا نشد یا توکن بهش دسترسی نداره. موقع ساخت توکن، همین مخزن رو انتخاب کن.',
+    public_repo: 'این مخزن عمومیه و اطلاعات گروه برای همه دیده میشه. توی Settings مخزن، Private‌ش کن و دوباره بزن.',
+    no_write: 'توکن اجازه‌ی ذخیره نداره. توی تنظیمات توکن، Contents رو Read and write بذار.',
+    resource_exhausted: 'GitHub چند دقیقه محدودیت گذاشته. کمی بعد دوباره امتحان کن.',
+    unavailable: 'به GitHub وصل نشد. اینترنت رو چک کن و دوباره بزن.'
+  };
+  const gateMsg = (e) => GATE_MSG[e && e.code] || GATE_MSG.unavailable;
+  function gateHTML() {
+    const errP = (id, msg) => '<p class="form-err" id="' + id + '" role="alert">' + esc(msg || '') + '</p>';
+    const busy = S.gateBusy ? ' disabled' : '';
+    if (S.gate === 'offline') {
+      return '<section class="state-card"><h2>به اینترنت وصل نیستی</h2><p>برای بار اول باید آنلاین باشی تا اطلاعات گروه بیاد. اینترنت رو چک کن و دوباره بزن.</p>' +
+        '<button type="button" class="btn primary" id="gate-retry" data-act="gate-retry">دوباره امتحان کن</button></section>';
+    }
+    const expired = S.gate === 'expired';
+    let h = '<section class="onboard"><h1 class="display">' + (expired ? 'لینک دعوت دیگه کار نمی‌کنه' : 'به هم‌قدم خوش اومدی') + '</h1>' +
+      '<p class="lead">' + (expired ? 'دسترسی این لینک برداشته شده. یه لینک دعوت جدید از سازنده‌ی گروه بگیر و اینجا بذار.' : 'اگه دوستت دعوتت کرده، لینکی که برات فرستاده رو باز کن یا اینجا بذار.') + '</p>' +
+      '<form class="card join" id="gate-link" data-form="gate-link" novalidate><h2 class="h2">لینک دعوت داری؟</h2>' +
+      '<div class="field"><label for="gl-link">لینک دعوت</label><input id="gl-link" class="input mono" autocomplete="off" autocapitalize="none" autocorrect="off" spellcheck="false" placeholder="https://"></div>' +
+      errP('gl-err', S.gateErr) + '<button type="submit" class="btn primary block" id="gl-submit"' + busy + '>ورود به گروه</button></form>';
+    if (!expired) {
+      const steps = [
+        'توی GitHub یه مخزن <b>Private</b> بساز به اسم <b class="mono">hamghadam-data</b>.',
+        'برو به <b>Settings</b>، بعد <b>Developer settings</b>، بعد <b>Fine-grained tokens</b> و <b>Generate new token</b> رو بزن.',
+        'توی <b>Repository access</b> گزینه‌ی <b>Only select repositories</b> رو بزن و <b class="mono">hamghadam-data</b> رو انتخاب کن.',
+        'توی <b>Permissions</b> برای <b>Contents</b> گزینه‌ی <b>Read and write</b> رو بذار. <b>Expiration</b> رو <b>No expiration</b> بذار.',
+        'توکن رو بساز، کپی کن و اینجا بذار.'
+      ];
+      h += '<details class="card setup" id="setup-card"' + (S.setupOpen ? ' open' : '') + '><summary><span class="h2">ساخت گروه جدید</span><span class="muted">فقط سازنده‌ی گروه</span></summary>' +
+        '<div class="setup-body"><p class="muted">اطلاعات گروه توی یه مخزن خصوصی GitHub خودت ذخیره میشه؛ مجانی و از هر جای دنیا در دسترس.</p>' +
+        '<ol class="steps small">' + steps.map((x, i) => '<li><span class="n">' + fd(i + 1) + '</span><span>' + x + '</span></li>').join('') + '</ol>' +
+        '<form class="join" id="gate-setup" data-form="gate-setup" novalidate>' +
+        '<div class="field"><label for="gs-repo">مخزن اطلاعات</label><input id="gs-repo" class="input mono" value="' + esc(NET.guessRepo()) + '" placeholder="username/hamghadam-data" autocomplete="off" autocapitalize="none" autocorrect="off" spellcheck="false"></div>' +
+        '<div class="field"><label for="gs-token">توکن</label><input id="gs-token" class="input mono" type="password" placeholder="github_pat_" autocomplete="off" autocapitalize="none" autocorrect="off" spellcheck="false"></div>' +
+        errP('gs-err', S.setupErr) + '<button type="submit" class="btn primary block" id="gs-submit"' + busy + '>اتصال و ساخت گروه</button></form></div></details>';
+    }
+    return h + '</section>';
+  }
+  function netBanners() {
+    if (!NET || NET.online()) return '';
+    return '<div class="banner warn" id="offline-banner">' + ICON.wifi + '<div class="banner-body"><b>اینترنت قطعه</b><div>آخرین اطلاعات ذخیره‌شده رو می‌بینی. تا وصل نشی تغییرات ثبت نمیشه.</div></div></div>';
+  }
+  const inviteText = () => 'بیا تو گروه هم‌قدم که هر هفته هدف‌هامون رو با هم جلو ببریم.\nاین لینک رو توی Safari باز کن و به صفحه‌ی اصلی اضافه‌ش کن:\n' + NET.inviteLink();
+  function inviteHTML() {
+    if (!NET || !NET.configured()) return '';
+    return '<section class="card invite" id="invite-card"><h2 class="h2">دوستات رو دعوت کن</h2>' +
+      '<p class="muted">این لینک رو فقط برای دوستات بفرست. هر کس لینک رو داشته باشه وارد گروه میشه.</p>' +
+      '<input id="inv-link" class="input mono" readonly value="' + esc(NET.inviteLink()) + '" aria-label="لینک دعوت">' +
+      '<div class="row"><button type="button" class="btn primary" id="inv-share" data-act="invite-share">فرستادن دعوت</button>' +
+      '<button type="button" class="btn" id="inv-copy" data-act="invite-copy">کپی لینک</button></div></section>';
+  }
+  function copyText(text, okMsg) {
+    const fallback = () => {
+      const ta = document.createElement('textarea');
+      ta.value = text;
+      ta.setAttribute('readonly', '');
+      ta.style.position = 'fixed';
+      ta.style.top = '0';
+      ta.style.opacity = '0';
+      document.body.appendChild(ta);
+      ta.select();
+      let ok = false;
+      try { ok = document.execCommand('copy'); } catch (e) { ok = false; }
+      ta.remove();
+      toast(ok ? okMsg : 'کپی نشد؛ لینک رو انگشت نگه دار و کپی کن', 3500);
+    };
+    try {
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(text).then(() => toast(okMsg), fallback);
+        return;
+      }
+    } catch (e) { /* use fallback */ }
+    fallback();
+  }
+  function shareInvite() {
+    if (!NET || !NET.configured()) return;
+    const text = inviteText();
+    if (navigator.share) {
+      try {
+        navigator.share({ title: 'هم‌قدم', text: text }).catch((e) => { if (!e || e.name !== 'AbortError') copyText(text, 'دعوت کپی شد؛ برای دوستات بفرست'); });
+        return;
+      } catch (e) { /* use copy */ }
+    }
+    copyText(text, 'دعوت کپی شد؛ برای دوستات بفرست');
+  }
+  function stopSubs() { for (const u of S.unsubs) { try { u(); } catch (e) { /* ignore */ } } S.unsubs = []; }
+  async function startApp() {
+    S.db = NET.db;
+    S.uid = null;
+    S.owner = NET.isOwner();
+    S.canWrite = true;
+    S.readOnly = false;
+    S.gateErr = '';
+    S.setupErr = '';
+    S.gateBusy = false;
+    if (!NET.hasCache()) {
+      S.phase = 'loading';
+      render();
+      try { await NET.firstSync(); }
+      catch (e) {
+        if (e && e.auth) return;
+        S.phase = 'gate'; S.gate = 'offline'; render();
+        return;
+      }
+    }
+    S.phase = 'ready';
+    subscribe();
+    render();
+  }
+  function initStandalone() {
+    NET.onAuthLost(() => {
+      if (S.phase === 'gate') return;
+      stopSubs();
+      S.phase = 'gate';
+      S.gate = 'expired';
+      S.gateErr = '';
+      S.gateBusy = false;
+      closeSheet(true);
+      render();
+    });
+    NET.onOnline(() => render());
+    if (!NET.configured()) { S.phase = 'gate'; S.gate = 'connect'; render(); return; }
+    startApp();
+  }
+  async function submitGateLink() {
+    if (S.gateBusy) return;
+    const raw = val('gl-link');
+    if (!raw.trim()) { S.gateErr = GATE_MSG.bad_link; render(); return; }
+    S.gateBusy = true; S.gateErr = ''; render();
+    try { await NET.joinLink(raw); }
+    catch (e) { S.gateBusy = false; S.gateErr = gateMsg(e); render(); }
+  }
+  async function submitGateSetup() {
+    if (S.gateBusy) return;
+    S.gateBusy = true; S.setupErr = ''; render();
+    try { await NET.connect(val('gs-repo'), val('gs-token')); }
+    catch (e) { S.gateBusy = false; S.setupErr = gateMsg(e); render(); }
+  }
+
+  /* ================= actions ================= */
+  function goTab(t) {
+    if (t === 'me' && !me()) t = 'race';
+    S.tab = t;
+    LS.set('tab', t);
+    try { window.scrollTo(0, 0); } catch (e) { /* ignore */ }
+    render();
+  }
+  function onDay(el) {
+    const m = me(), w = S.week, gid = el.dataset.gid, d = parseInt(el.dataset.d, 10);
+    if (!m || !(d >= 0 && d < 7) || !dayEditable(w, d)) return;
+    const plan = getPlan(w, m.id);
+    const g = plan ? plan.goals.find((x) => x.id === gid) : null;
+    if (!g) return;
+    if (g.kind === 'amount') { amountSheet(gid, d); return; }
+    const cur = entryVal(plan.log, gid, d);
+    writeEntry(w, gid, d, cur > 0 ? 0 : 1);
+    if (!cur && navigator.vibrate) { try { navigator.vibrate(12); } catch (e) { /* ignore */ } }
+  }
+  function copyPrev() {
+    const m = me(), w = S.week;
+    if (!m || !canEditGoals(w)) return;
+    const existing = getPlan(w, m.id);
+    if (existing && existing.goals.length) return;
+    const prev = findPrevGoals(m.id, w);
+    if (!prev) return;
+    const goals = prev.goals.slice(0, MAX_GOALS).map(plainGoal);
+    if (queuePatch('plans/' + planKey(w, m.id), { goals: goals }, { week: w, mid: m.id, goals: [], log: {} })) {
+      toast(fd(goals.length) + ' هدف از ' + weekRel(prev.week) + ' اضافه شد');
+    }
+  }
+  function toggleKudos(el) {
+    const m = me(), w = S.week, key = el.dataset.key, to = el.dataset.to;
+    if (!m || S.readOnly || !key || to === m.id || !S.byId[to]) return;
+    const given = kudosGivers(getSocial(w), key).indexOf(m.id) >= 0;
+    queuePatch('social/' + w, { kudos: { [key]: { [m.id]: given ? 0 : Date.now() } } }, { week: w });
+  }
+  async function join() {
+    if (S.joining || S.readOnly) return;
+    const name = clean(val('j-name'), 24);
+    if (!name) { setErr('j-err', 'اسمت رو بنویس.'); return; }
+    const dup = S.members.find((x) => x.name === name);
+    if (dup) { setErr('j-err', dup.uid ? 'این اسم رو یه نفر دیگه داره؛ یه اسم دیگه بنویس.' : 'این اسم توی گروه هست. اگه خودتی، از بخش «قبلا عضو شدی؟» انتخابش کن.'); return; }
+    const color = checkedColor('j-color', firstFreeColor());
+    const id = newId();
+    S.joining = true;
+    const btn = document.getElementById('j-submit');
+    if (btn) btn.disabled = true;
+    S.localMe = id;
+    LS.set('me', id);
+    try {
+      await retry(() => S.db.doc('members/' + id).set({ name: name, color: color, uid: S.uid || null, joinedAt: Date.now() }));
+      S.joining = false;
+      resolveMe();
+      S.tab = 'me';
+      render();
+      toast('خوش اومدی ' + name + '!');
+    } catch (e) {
+      S.joining = false;
+      S.localMe = null;
+      LS.del('me');
+      if (btn && document.contains(btn)) btn.disabled = false;
+      writeFailed(e);
+      render();
+    }
+  }
+  function claim(mid) {
+    const m = S.byId[mid];
+    if (!m || m.uid) return;
+    S.localMe = mid;
+    LS.set('me', mid);
+    if (S.uid && !S.readOnly) queuePatch('members/' + mid, { uid: S.uid }, null);
+    resolveMe();
+    S.tab = 'me';
+    render();
+    toast('سلام ' + m.name + '!');
+  }
+  const ACTIONS = {
+    'tab': (el) => goTab(el.dataset.tab),
+    'week': (el) => {
+      const dir = parseInt(el.dataset.dir, 10) || 0;
+      const next = addDays(S.week, 7 * dir);
+      if (next < minWeek() || next > addDays(curWeek(), 7)) return;
+      S.week = next; S.feedAll = false; render();
+    },
+    'week-now': () => { S.week = curWeek(); S.feedAll = false; render(); },
+    'goto-week': (el) => {
+      const w = el.dataset.w;
+      if (!isYmd(w)) return;
+      S.week = weekOf(w); S.feedAll = false;
+      goTab(el.dataset.tab || 'race');
+    },
+    'day': onDay,
+    'goal-new': () => goalSheet(null, null),
+    'goal-edit': (el) => goalSheet(el.dataset.gid, null),
+    'tpl': (el) => { const t = TEMPLATES[parseInt(el.dataset.i, 10)]; if (t) goalSheet(null, t); },
+    'copy-prev': copyPrev,
+    'g-kind': (el) => setGoalKind(el.dataset.kind === 'amount' ? 'amount' : 'days'),
+    'g-days': (el) => {
+      if (!S.sheet || S.sheet.type !== 'goal') return;
+      const n = parseInt(el.dataset.n, 10);
+      if (!(n >= 1 && n <= 7)) return;
+      S.sheet.days = n;
+      document.querySelectorAll('.dp').forEach((b) => b.setAttribute('aria-pressed', String(b === el)));
+    },
+    'g-step': (el) => {
+      const inp = document.getElementById('g-target');
+      if (!inp) return;
+      let v = parseAmount(inp.value);
+      if (!(v > 0)) v = 0;
+      const st = amountStep(v || 10);
+      v = Math.max(1, Math.round((v + st * (parseInt(el.dataset.step, 10) || 0)) * 10) / 10);
+      inp.value = fplain(Math.min(100000, v));
+    },
+    'g-unit': (el) => { const inp = document.getElementById('g-unit'); if (inp) inp.value = el.dataset.u || ''; },
+    'g-delete': (el) => deleteGoal(el),
+    'amt-step': (el) => {
+      const inp = document.getElementById('amt');
+      if (!inp || !S.sheet) return;
+      let v = parseAmount(inp.value);
+      if (!(v >= 0)) v = 0;
+      v = Math.max(0, Math.round((v + S.sheet.step * (parseInt(el.dataset.step, 10) || 0)) * 10) / 10);
+      inp.value = v ? fplain(v) : '';
+      setErr('amt-err', '');
+    },
+    'amt-add': (el) => {
+      const inp = document.getElementById('amt');
+      if (!inp) return;
+      let v = parseAmount(inp.value);
+      if (!(v >= 0)) v = 0;
+      inp.value = fplain(Math.min(100000, v + (parseFloat(el.dataset.v) || 0)));
+      setErr('amt-err', '');
+    },
+    'amt-clear': () => submitAmount(true),
+    'expand': (el) => { const mid = el.dataset.mid; if (S.expanded.has(mid)) S.expanded.delete(mid); else S.expanded.add(mid); render(); },
+    'kudos': toggleKudos,
+    'nudge': (el) => nudgeSheet(el.dataset.mid),
+    'nudge-send': (el) => sendNudge(parseInt(el.dataset.i, 10) || 0),
+    'stake': stakeSheet,
+    'stake-pick': (el) => { const t = document.getElementById('s-text'); const s = STAKES[parseInt(el.dataset.i, 10)]; if (t && s) { t.value = s; setErr('s-err', ''); } },
+    'stake-clear': () => submitStake(true),
+    'profile': profileSheet,
+    'switch-user': () => { LS.del('me'); S.localMe = null; S.meId = null; closeSheet(true); render(); },
+    'rm-member': (el) => removeMember(el),
+    'claim': (el) => claim(el.dataset.mid),
+    'sheet-close': () => closeSheet(),
+    'feed-more': () => { S.feedAll = !S.feedAll; render(); },
+    'seen-nudges': (el) => {
+      const m = me();
+      const t = num(el.dataset.t);
+      if (!m) return;
+      S.seenNudge = Math.max(S.seenNudge, t);
+      LS.set('seen.' + m.id, Math.max(t, num(LS.get('seen.' + m.id))));
+      render();
+    },
+    'retry': () => { S.subErr = null; S.slow = false; subscribe(); render(); },
+    'skip-install': () => { S.skipInstall = true; LS.set('skip-install', '1'); render(); },
+    'copy-link': () => { copyText(location.href, 'لینک کپی شد؛ توی Safari بازش کن'); },
+    'invite-share': () => { shareInvite(); },
+    'invite-copy': () => { copyText(inviteText(), 'دعوت کپی شد؛ برای دوستات بفرست'); },
+    'own-copy': () => { if (NET) copyText(NET.ownLink(), 'لینک کپی شد؛ روی گوشیت توی Safari بازش کن'); },
+    'gate-retry': () => { S.phase = 'loading'; render(); initStandalone(); }
+  };
+  function onClick(e) {
+    const t = e.target;
+    if (t && t.classList && t.classList.contains('sheet-back')) { closeSheet(); return; }
+    const el = t && t.closest ? t.closest('[data-act]') : null;
+    if (!el || el.disabled) return;
+    const fn = ACTIONS[el.dataset.act];
+    if (!fn) return;
+    e.preventDefault();
+    try { fn(el, e); } catch (err) { try { console.error(err); } catch (e2) { /* ignore */ } toast('یه مشکل پیش اومد؛ دوباره امتحان کن.'); }
+  }
+  function onSubmit(e) {
+    const f = e.target;
+    if (!f || !f.dataset) return;
+    e.preventDefault();
+    const k = f.dataset.form;
+    try {
+      if (k === 'goal') submitGoal();
+      else if (k === 'amount') submitAmount(false);
+      else if (k === 'profile') submitProfile();
+      else if (k === 'stake') submitStake(false);
+      else if (k === 'join') join();
+      else if (k === 'gate-setup') submitGateSetup();
+      else if (k === 'gate-link') submitGateLink();
+    } catch (err) { try { console.error(err); } catch (e2) { /* ignore */ } toast('یه مشکل پیش اومد؛ دوباره امتحان کن.'); }
+  }
+  let toastTimer = 0;
+  function toast(msg, ms) {
+    const el = $('#toast');
+    if (!el) return;
+    el.textContent = msg;
+    el.classList.add('show');
+    clearTimeout(toastTimer);
+    toastTimer = setTimeout(() => el.classList.remove('show'), ms || 2300);
+  }
+
+  /* ================= data subscriptions ================= */
+  function rebuildMembers() {
+    const list = [];
+    for (const id of Object.keys(S.rawMembers)) {
+      const m = normMember(id, effective('members/' + id, S.rawMembers[id]));
+      if (m) list.push(m);
+    }
+    list.sort((a, b) => a.joinedAt - b.joinedAt || (a.id < b.id ? -1 : 1));
+    S.members = list;
+    S.byId = {};
+    for (const m of list) S.byId[m.id] = m;
+  }
+  function resolveMe() {
+    let m = null;
+    if (S.uid) m = S.members.find((x) => x.uid === S.uid) || null;
+    if (!m) {
+      for (const id of [S.localMe, LS.get('me')]) {
+        if (id && S.byId[id] && (!S.byId[id].uid || S.byId[id].uid === S.uid)) { m = S.byId[id]; break; }
+      }
+    }
+    S.meId = m ? m.id : null;
+  }
+  function markReady(k, snap) {
+    S.got[k] = true;
+    if (!snap || !snap.metadata || !snap.metadata.fromCache) S.ready[k] = true;
+  }
+  function subscribe() {
+    for (const u of S.unsubs) { try { u(); } catch (e) { /* ignore */ } }
+    S.unsubs = [];
+    S.subErr = null;
+    S.ready = { members: false, plans: false, social: false };
+    S.got = { members: false, plans: false, social: false };
+    const onErr = (e) => { S.subErr = (e && e.code) || 'unavailable'; render(); };
+    try {
+      S.unsubs.push(S.db.collection('members').onSnapshot((snap) => {
+        const raw = {};
+        for (const d of snap.docs) { const v = d.data(); if (isObj(v)) raw[d.id] = v; }
+        S.rawMembers = raw;
+        rebuildMembers();
+        markReady('members', snap);
+        clearSettled('members/');
+        resolveMe();
+        render();
+      }, onErr));
+      S.unsubs.push(S.db.collection('plans').onSnapshot((snap) => {
+        const map = {};
+        for (const d of snap.docs) { const v = d.data(); if (isObj(v)) map[d.id] = v; }
+        S.plans = map;
+        markReady('plans', snap);
+        clearSettled('plans/');
+        render();
+      }, onErr));
+      S.unsubs.push(S.db.collection('social').onSnapshot((snap) => {
+        const map = {};
+        for (const d of snap.docs) { const v = d.data(); if (isObj(v) && isYmd(d.id)) map[d.id] = v; }
+        S.social = map;
+        markReady('social', snap);
+        clearSettled('social/');
+        render();
+      }, onErr));
+    } catch (e) {
+      S.subErr = 'unavailable';
+    }
+    const gen = S.unsubs;
+    setTimeout(() => {
+      if (S.unsubs !== gen) return;
+      let ch = false;
+      for (const k in S.ready) if (!S.ready[k] && S.got[k]) { S.ready[k] = true; ch = true; }
+      if (ch) render();
+    }, 2500);
+    setTimeout(() => {
+      if (S.unsubs !== gen) return;
+      if (!allReady() && !S.subErr) { S.slow = true; render(); }
+    }, 12000);
+  }
+  function tick() {
+    const t = today();
+    if (t !== S.today) {
+      const oldCur = S.today ? weekOf(S.today) : null;
+      if (oldCur && S.week === oldCur) S.week = weekOf(t);
+    }
+    render();
+  }
+  async function init() {
+    S.week = curWeek();
+    const savedTab = LS.get('tab');
+    if (savedTab === 'me' || savedTab === 'race' || savedTab === 'trend') S.tab = savedTab;
+    const hashTab = { my: 'me', race: 'race', trend: 'trend' }[(location.hash || '').slice(1)];
+    if (hashTab) S.tab = hashTab;
+    document.addEventListener('click', onClick);
+    document.addEventListener('submit', onSubmit);
+    document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && $('#sheet-root').firstChild) { e.preventDefault(); closeSheet(); } });
+    document.addEventListener('change', (e) => { const t = e.target; if (t && t.type === 'radio') syncSwatches(t.closest('.swatches')); });
+    document.addEventListener('input', (e) => { const f = e.target && e.target.closest ? e.target.closest('form') : null; if (f) f.querySelectorAll('.form-err').forEach((x) => { x.textContent = ''; }); });
+    document.addEventListener('visibilitychange', () => { if (!document.hidden) tick(); });
+    document.addEventListener('toggle', (e) => { if (e.target && e.target.id === 'setup-card') S.setupOpen = e.target.open; }, true);
+    let rz = 0;
+    window.addEventListener('resize', () => { clearTimeout(rz); rz = setTimeout(() => { if (S.tab === 'trend') render(); }, 200); });
+    setInterval(tick, 60000);
+    render();
+    if (NET) {
+      try { if ('serviceWorker' in navigator && window.isSecureContext) navigator.serviceWorker.register('sw.js').catch(() => {}); } catch (e) { /* ignore */ }
+      return initStandalone();
+    }
+    const c = window.claude;
+    const use = (name) => {
+      try { return c && typeof c.use === 'function' ? Promise.resolve(c.use(name)).catch(() => null) : Promise.resolve(null); }
+      catch (e) { return Promise.resolve(null); }
+    };
+    const got = await Promise.all([use('db'), use('user')]);
+    const db = got[0], user = got[1];
+    if (!db) { S.phase = 'nodb'; render(); return; }
+    S.db = db;
+    S.user = user;
+    if (user) {
+      try { const id = await user.id(); S.uid = typeof id === 'string' && id ? id : null; } catch (e) { S.uid = null; }
+      try { S.owner = (await user.isOwner()) === true; } catch (e) { S.owner = false; }
+      try { const cw = await user.can('data.write'); S.canWrite = cw === true ? true : cw === false ? false : null; } catch (e) { S.canWrite = null; }
+    }
+    if (S.canWrite === false) S.readOnly = true;
+    S.phase = 'ready';
+    subscribe();
+    render();
+  }
+
+  try {
+    window.__hq = Object.freeze({
+      fn: Object.freeze({ toJ: toJ, weekOf: weekOf, dayIdx: dayIdx, addDays: addDays, parseAmount: parseAmount, fpct: fpct, fnum: fnum, fd: fd, fplain: fplain,
+        planStats: planStats, goalProgress: goalProgress, weekRange: weekRange, esc: esc, clean: clean, merge: merge, normGoal: normGoal, normPlan: normPlan }),
+      state: () => S,
+      tick: tick,
+      standings: (w) => { S.memo = new Map(); return standings(w); },
+      streakOf: (mid) => { S.memo = new Map(); return streakOf(mid); }
+    });
+  } catch (e) { /* ignore */ }
+
+  init();
+})();
+</script>
+
+</body>
+</html>
